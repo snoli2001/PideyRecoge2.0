@@ -140,8 +140,10 @@
   <ItemGroup>
     <ClInclude Include="Alimento.h" />
     <ClInclude Include="ColaCompras.h" />
-    <ClInclude Include="ListaAlimentos.h" />
+    <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaAlimento.h" />
     <ClInclude Include="Nodo.h" />
+    <ClInclude Include="Persona.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />

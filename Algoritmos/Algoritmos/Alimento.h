@@ -22,7 +22,7 @@ public:
 	{
 		nombre = Contable.nombre;
 	}
-	void imprimir() { cout << nombre <<"---------- "<< cantidad<<endl; }
+	void imprimir() { cout << nombre << "     "<<"\t" << cantidad  <<endl; }
 
 private:
 	int cantidad;
@@ -36,7 +36,7 @@ public:
 	{
 		nombre = Incontable.nombre;
 	}
-	void imprimir() { cout << nombre<<"---------- "<<cantidad<<" "<<unidades<<endl; }
+	void imprimir() { cout <<  nombre<<"     "<<"\t"<<cantidad<<" "<<unidades<<endl; }
 	
 private:
 	double cantidad;

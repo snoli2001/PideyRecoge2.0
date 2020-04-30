@@ -24,7 +24,13 @@
     <ClInclude Include="Alimento.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="ListaAlimentos.h">
+    <ClInclude Include="Lista.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaAlimento.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="Persona.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

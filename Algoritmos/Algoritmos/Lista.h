@@ -1,25 +1,24 @@
-#ifndef _ListaAlimentos_H_
-#define _ListaAlimentos_H_
+#ifndef _Lista_H_
+#define _Lista_H_
 
 #include "Nodo.h"
-#include"Alimento.h"
 template<class T>
-class ListaAlimentos {
-private:
+class Lista {
+protected:
 	Nodo<T>* inicio;
 	int longitud;
 public:
-	ListaAlimentos() { inicio = NULL; };
-	~ListaAlimentos() {};
+	Lista() { inicio = NULL; };
+	~Lista() {};
 	void AgregaralInicio(T v);
 	void AgregaralFinal(T v);
 	void AgregarenPosicion(T v, int pos);
-	void Mostrar();
-
+	/*void Mostrar();*/
+	virtual void Mostrar() abstract {};
 };
 
 template<class T>
-void ListaAlimentos<T>::AgregaralInicio(T v) {
+void Lista<T>::AgregaralInicio(T v) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v); //T
 
@@ -39,11 +38,11 @@ void ListaAlimentos<T>::AgregaralInicio(T v) {
 		aux = NULL;
 	}
 	nuevo = NULL;
-
+	longitud++;
 }
 
 template<class T>
-void ListaAlimentos<T>::AgregaralFinal(T v) {
+void Lista<T>::AgregaralFinal(T v) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v); //T
 
@@ -54,16 +53,17 @@ void ListaAlimentos<T>::AgregaralFinal(T v) {
 	else {
 		Nodo<T>* aux = inicio;
 		while (aux->siguiente != inicio) {
-			aux = aux->siguiente; //Ultimo de la ListaAlimentos
+			aux = aux->siguiente; //Ultimo de la Lista
 		}
 		aux->siguiente = nuevo;
 		nuevo->siguiente = inicio;
 		
 	}
+	longitud++;
 }
 
 template<class T>
-void ListaAlimentos<T>::AgregarenPosicion(T v, int pos) {
+void Lista<T>::AgregarenPosicion(T v, int pos) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v);
 
@@ -76,18 +76,18 @@ void ListaAlimentos<T>::AgregarenPosicion(T v, int pos) {
 	}
 	nuevo->siguiente = aux->siguiente;
 		aux->siguiente = nuevo;
-	
+	longitud++;
 }
 
-template<class T>
-void ListaAlimentos<T>::Mostrar() {
-	Nodo<T> *nodo = inicio;
-	do {		
-		Alimento* ali = (Alimento*)(nodo->valor);
-		ali->imprimir();
-		nodo = nodo->siguiente;
-	} while (nodo != inicio);
-	cout << endl;
-}
+//template<class T>
+//void Lista<T>::Mostrar() {
+//	Nodo<T> *nodo = inicio;
+//	do {		
+//		Alimento* ali = (Alimento*)(nodo->valor);
+//		ali->imprimir();
+//		nodo = nodo->siguiente;
+//	} while (nodo != inicio);
+//	cout << endl;
+//}
 
-#endif // !_ListaAlimentos_H_
+#endif // !_Lista_H_
