@@ -1,15 +1,14 @@
-#ifndef _Lista_H_
-#define _Lista_H_
+#ifndef _ListaPedido_H_
+#define _ListaPedido_H_
 
-#include "Nodo.h"
+#include "ListaSimple.h"
+
 template<class T>
-class Lista {
-protected:
-	Nodo<T>* inicio;
-	int longitud;
+class ListaPedido:public ListaS<T>  {
+
 public:
-	Lista() { inicio = NULL; longitud = 0; };
-	~Lista() {}
+	ListaPedido() :ListaS<T>() {}
+	~ListaPedido() {}
 	void AgregaralInicio(T v);
 	void AgregaralFinal(T v);
 	void AgregarenPosicion(T v, int pos);
@@ -18,56 +17,55 @@ public:
 
 	/*void Mostrar();*/
 	virtual void Mostrar() abstract {};
-
 };
 
 template<class T>
-void Lista<T>::AgregaralInicio(T v) {
+void ListaPedido<T>::AgregaralInicio(T v) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v); //T
 
-	if (inicio == NULL) {
-		inicio = nuevo;
-		nuevo->siguiente = inicio;
+	if (ListaS<T>::inicio == NULL) {
+		ListaS<T>::inicio = nuevo;
+		nuevo->siguiente = ListaS<T>::inicio;
 	}
 	else {
-		Nodo<T>* aux = inicio;
-		while (aux->siguiente != inicio) {
+		Nodo<T>* aux = ListaS<T>::inicio;
+		while (aux->siguiente != ListaS<T>::inicio) {
 			aux = aux->siguiente;
 		}
-		nuevo->siguiente = inicio;
+		nuevo->siguiente = ListaS<T>::inicio;
 		aux->siguiente = nuevo;
 		
-		inicio = nuevo;
+		ListaS<T>::inicio = nuevo;
 		aux = NULL;
 	}
 	nuevo = NULL;
-	longitud++;
+	ListaS<T>::lenght++;
 }
 
 template<class T>
-void Lista<T>::AgregaralFinal(T v) {
+void ListaPedido<T>::AgregaralFinal(T v) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v); //T
 
-	if (inicio == NULL) {
+	if (ListaS<T>::inicio == NULL) {
 		AgregaralInicio(v);
 		return;
 	}
 	else {
-		Nodo<T>* aux = inicio;
-		while (aux->siguiente != inicio) {
-			aux = aux->siguiente; //Ultimo de la Lista
+		Nodo<T>* aux = ListaS<T>::inicio;
+		while (aux->siguiente != ListaS<T>::inicio) {
+			aux = aux->siguiente; //Ultimo de la ListaPedido
 		}
 		aux->siguiente = nuevo;
 	
 		
 	}
-	longitud++;
+	ListaS<T>::lenght++;
 }
 
 template<class T>
-void Lista<T>::AgregarenPosicion(T v, int pos) {
+void ListaPedido<T>::AgregarenPosicion(T v, int pos) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v);
 	if (pos == 0)
@@ -77,7 +75,7 @@ void Lista<T>::AgregarenPosicion(T v, int pos) {
 	else
 	{
 		int i = 1;
-		Nodo<T>* aux = inicio;
+		Nodo<T>* aux = ListaS<T>::inicio;
 		while (i < pos)
 		{
 			aux = aux->siguiente; //Nodo en la posición POS
@@ -86,27 +84,27 @@ void Lista<T>::AgregarenPosicion(T v, int pos) {
 		nuevo->siguiente = aux->siguiente;
 		aux->siguiente = nuevo;
 	}
-	longitud++;
+	ListaS<T>::lenght++;
 }
 template<class T>
-void Lista<T>::ELiminarInicial()
+void ListaPedido<T>::ELiminarInicial()
 {
-	Nodo<T>* aux = inicio;
-	if (longitud > 0) {
-		inicio = inicio->siguiente;
+	Nodo<T>* aux = ListaS<T>::inicio;
+	if (ListaS<T>::lenght > 0) {
+		ListaS<T>::inicio = ListaS<T>::inicio->siguiente;
 		delete aux;
-		longitud--;
+		ListaS<T>::lenght--;
 	}
 }
 template<class T>
-void Lista<T>::EliminarenPosicion(int pos) {
+void ListaPedido<T>::EliminarenPosicion(int pos) {
 	
 	if (pos == 0)
 	{
 		ELiminarInicial();
 	}
 	else {
-		Nodo<T>* aux = inicio;
+		Nodo<T>* aux = ListaS<T>::inicio;
 		int i = 1;
 		while (i < pos)
 		{
@@ -116,7 +114,7 @@ void Lista<T>::EliminarenPosicion(int pos) {
 		Nodo<T>* Eliminar = aux->siguiente;
 		aux->siguiente = aux->siguiente->siguiente;
 		delete Eliminar;
-		longitud--;
+		ListaS<T>::lenght--;
 	}
 	
 
@@ -124,7 +122,7 @@ void Lista<T>::EliminarenPosicion(int pos) {
 }
 
 //template<class T>
-//void Lista<T>::Mostrar() {
+//void ListaPedido<T>::Mostrar() {
 //	Nodo<T> *nodo = inicio;
 //	do {		
 //		Alimento* ali = (Alimento*)(nodo->valor);
