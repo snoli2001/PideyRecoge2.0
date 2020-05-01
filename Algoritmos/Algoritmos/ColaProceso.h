@@ -28,7 +28,14 @@ public:
 		} while (item!=NULL);
 		Encolar(nuevo);
 	}
-
+	void MostrarPedidos() {
+		Nodo<Pedido*>* aux = tail;
+		while (aux!=NULL)
+		{
+			aux->valor->impirmir();
+			aux = aux->siguiente;
+		}
+	}
 };
 
 

@@ -6,8 +6,10 @@
 
 class LStock :public ListaS<Alimento*>
 {
+private: 
+	int contable, incontable;
 public:
-	LStock() :ListaS() {}
+	LStock() :ListaS() { contable = 0; incontable = 0; }
 	~LStock() {}
 
 	bool modificacion(Alimento* v, ReStock* cola) {
@@ -25,6 +27,14 @@ public:
 				}
 				else
 				{
+					if (sizeof(aux->valor)== sizeof(Contable*))
+					{
+						contable++;
+					}
+					else
+					{
+						incontable++;
+					}
 					EliminarDeLista(aux, cola);
 					return false;
 				}
@@ -43,7 +53,16 @@ public:
 		cola->Encolar(v->valor);
 
 	}
-	
+	void ActualizarArchivo() {
+		ofstream arch;
+		arch.open("NStock.txt", ios::out);
+		if (arch.is_open()) {
+			arch << contable;
+			arch << incontable;
+			arch.close();
+		}
+		
+	}
 
 };
 
