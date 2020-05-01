@@ -8,7 +8,7 @@
 void  main()
 {
 	string nombre, apellido;
-	int con, inc;
+	int con=0, inc=0;
 	string producto, medida;
 	double cant;
 
