@@ -1,11 +1,11 @@
 #pragma once
 #include "Pila.h"
 #include "Alimento.h"
-class Pedido:public Pila<Alimento>
+class Pedido1:public Pila<Alimento>
 {
 public:
-	Pedido();
-	~Pedido();
+	Pedido1();
+	~Pedido1();
 
 private:
 
