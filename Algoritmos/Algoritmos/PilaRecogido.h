@@ -1,7 +1,7 @@
 #pragma once
-#include "PilaAlimentos.h"
+#include "Pila.h"
 
-class Recogido:public Pila<Pedido1>
+class Recogido:public Pila<>
 {
 public:
 	Recogido();

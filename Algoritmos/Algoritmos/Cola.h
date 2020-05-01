@@ -4,7 +4,7 @@
 template<class T>
 class Cola
 {
-private:
+protected:
 	Nodo<T>* head;
 	Nodo<T>* tail;
 	int lenght;
