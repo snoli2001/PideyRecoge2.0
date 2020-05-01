@@ -139,11 +139,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Alimento.h" />
-    <ClInclude Include="ColaCompras.h" />
+    <ClInclude Include="Cola.h" />
     <ClInclude Include="Lista.h" />
     <ClInclude Include="ListaAlimento.h" />
     <ClInclude Include="Nodo.h" />
-    <ClInclude Include="Persona.h" />
+    <ClInclude Include="Pedido.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />

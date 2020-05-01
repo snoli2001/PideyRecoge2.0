@@ -1,5 +1,5 @@
 
-#include"Persona.h"
+#include"Pedido.h"
 
 void  main()
 {
@@ -15,19 +15,23 @@ void  main()
 	lista_alimento.Mostrar();*/
 
 
-	Persona* per = new Persona("Joel", "Alvarado");
-	per->AgregarAlimentoaLista_inicio(new Contable("Platano",10));
-	per->AgregarAlimentoaLista_inicio(new Incontable("Leche", 2, "Litros"));
-	per->AgregarAlimentoaLista_final(new Incontable("Queso", 0.5, "Kilos"));
-	per->AgregarAlimentoaLista_pos(new Incontable("Inca Kola", 2, "litros"), 2);
-	per->impirmir();
+	Pedido* pe = new Pedido("Joel", "Alvarado");
+	pe->AgregarAlimentoaLista_inicio(new Contable("Platano",10));
+	pe->AgregarAlimentoaLista_inicio(new Incontable("Leche", 2, "Litros"));
+	pe->AgregarAlimentoaLista_final(new Incontable("Queso", 0.5, "Kilos"));
+	pe->AgregarAlimentoaLista_pos(new Incontable("Inca Kola", 2, "litros"), 2);
+	//pe->EliminarAlimento_pos(2);
+	pe->impirmir();
+	pe->EliminarAlimento_pos(0);
+	pe->impirmir();
 
-	Persona* per2 = new Persona("Daniel", "Quispe");
-	per2->AgregarAlimentoaLista_inicio(new Contable("Mango", 2));
-	per2->AgregarAlimentoaLista_inicio(new Incontable("Azucar", 2, "kilos"));
-	per2->AgregarAlimentoaLista_final(new Incontable("Arroz", 0.5, "Kilos"));
-	per2->AgregarAlimentoaLista_pos(new Incontable("Coca Cola", 2, "litros"), 2);
-	per2->impirmir();
+	Pedido* pe2 = new Pedido("Daniel", "Quispe");
+	pe2->AgregarAlimentoaLista_inicio(new Contable("Mango", 2));
+	pe2->AgregarAlimentoaLista_inicio(new Incontable("Azucar", 2, "kilos"));
+	pe2->AgregarAlimentoaLista_final(new Incontable("Arroz", 0.5, "Kilos"));
+	pe2->AgregarAlimentoaLista_pos(new Incontable("Coca Cola", 2, "litros"), 2);
+
+	pe2->impirmir();
 
 	_getch();
 }

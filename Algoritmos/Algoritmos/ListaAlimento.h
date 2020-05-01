@@ -14,10 +14,13 @@ public:
 void ListaAlimento::Mostrar()
 {
 	Nodo<Alimento*>*nodo = inicio;
-		do {		
+		do {
+		
  			Alimento* ali = (Alimento*)(nodo->valor);
-			ali->imprimir();
-			nodo = nodo->siguiente;
-		} while (nodo != inicio);
+			
+				ali->imprimir();
+				nodo = nodo->siguiente;
+
+		} while (nodo != NULL);
 		cout << endl;
 }

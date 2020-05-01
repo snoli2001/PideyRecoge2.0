@@ -1,15 +1,16 @@
 #pragma once
 #include"ListaAlimento.h"
 
-class Persona
+class Pedido
 {
 public:
-	Persona(string nombre, string apellido) :nombre(nombre), apellido(apellido) {}
-	~Persona(){}
+	Pedido(string nombre, string apellido) :nombre(nombre), apellido(apellido) {}
+	~Pedido(){}
 	void impirmir();
 	void AgregarAlimentoaLista_inicio(Alimento* a);
 	void AgregarAlimentoaLista_final(Alimento* a);
 	void AgregarAlimentoaLista_pos(Alimento* a,int pos);
+	void EliminarAlimento_pos(int pos);
 private:
 	string nombre;
 	string apellido;
@@ -17,7 +18,7 @@ private:
 
 };
 
-void Persona::impirmir()
+void Pedido::impirmir()
 {
 	cout << "========= " + nombre << "  " + apellido<<" =========="<<"\n";
 	cout << endl;
@@ -25,17 +26,20 @@ void Persona::impirmir()
 	lista_alimento.Mostrar();
 }
 
-void Persona::AgregarAlimentoaLista_inicio(Alimento* a)
+void Pedido::AgregarAlimentoaLista_inicio(Alimento* a)
 {
 	lista_alimento.AgregaralInicio(a);
 }
 
-void Persona::AgregarAlimentoaLista_final(Alimento* a)
+void Pedido::AgregarAlimentoaLista_final(Alimento* a)
 {
 	lista_alimento.AgregaralFinal(a);
 }
-void Persona::AgregarAlimentoaLista_pos(Alimento* a,int pos)
+void Pedido::AgregarAlimentoaLista_pos(Alimento* a,int pos)
 {
 	lista_alimento.AgregarenPosicion(a,pos);
+}
+void Pedido::EliminarAlimento_pos(int pos) {
+	lista_alimento.EliminarenPosicion(pos);
 }
 
