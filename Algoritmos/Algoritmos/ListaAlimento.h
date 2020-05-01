@@ -8,6 +8,15 @@ public:
 	ListaAlimento() :ListaS() {}
 	~ListaAlimento() {}
 	void Mostrar();
+	Alimento* GetItem() {
+		Nodo<Alimento*>* aux = inicio;
+		if (lenght > 0) {
+			inicio = inicio->siguiente;
+			lenght--;
+			return aux->valor;
+		}
+		return NULL;
+	}
 
 };
 
@@ -24,3 +33,5 @@ void ListaAlimento::Mostrar()
 		} while (nodo != NULL);
 		cout << endl;
 }
+
+

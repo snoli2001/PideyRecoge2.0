@@ -1,5 +1,5 @@
-#ifndef _ListaSimlple_H_
-#define _ListaSimple_H_
+#ifndef __LISTASIMPLE_H__
+#define __LISTASIMPLE_H__
 #include"Nodo.h"
 
 
@@ -23,30 +23,20 @@ public:
 	void ELiminarInicial();
 
 	/*void Mostrar();*/
-	virtual void Mostrar() abstract {};
+	//irtual void Mostrar() abstract {};
 };
 
 template<class T>
 void ListaS<T>::AgregaralInicio(T v) {
-	Nodo<T>* nuevo;
-	nuevo = new Nodo<T>(v); //T
+	Nodo<T>* nuevo = new Nodo<T>(v); //T
 
 	if (inicio == NULL) {
 		inicio = nuevo;
-		nuevo->siguiente = inicio;
 	}
 	else {
-		Nodo<T>* aux = inicio;
-		while (aux->siguiente != inicio) {
-			aux = aux->siguiente;
-		}
 		nuevo->siguiente = inicio;
-		aux->siguiente = nuevo;
-		
 		inicio = nuevo;
-		aux = NULL;
 	}
-	nuevo = NULL;
 	lenght++;
 }
 
@@ -61,7 +51,7 @@ void ListaS<T>::AgregaralFinal(T v) {
 	}
 	else {
 		Nodo<T>* aux = inicio;
-		while (aux->siguiente != inicio) {
+		while (aux->siguiente != NULL) {
 			aux = aux->siguiente; //Ultimo de la ListaS
 		}
 		aux->siguiente = nuevo;

@@ -4,17 +4,9 @@
 class ReStock:public Cola<Alimento*>
 {
 public:
-	ReStock();
-	~ReStock();
+	ReStock():Cola<Alimento*>(){}
+	~ReStock(){}
 
 private:
 
 };
-
-ReStock::ReStock()
-{
-}
-
-ReStock::~ReStock()
-{
-}
