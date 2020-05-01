@@ -143,10 +143,9 @@
     <ClInclude Include="ColaProceso.h" />
     <ClInclude Include="ColaReStock.h" />
     <ClInclude Include="ListaDoble.h" />
-    <ClInclude Include="ListaPedido.h" />
+    <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="ListaAlimento.h" />
     <ClInclude Include="ListaRecojo.h" />
-    <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="ListaStock.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="NodoDoble.h" />
