@@ -8,7 +8,7 @@
 void  main()
 {
 	string nombre, apellido;
-	int con, inc;
+	int con=0, inc=0;
 	string producto, medida;
 	double cant;
 
@@ -23,6 +23,8 @@ void  main()
 	lista_alimento.AgregaralInicio(new Incontable("Inca Kola", 3, "litros"));
 	lista_alimento.Mostrar();*/
 	LStock* stock = new LStock();
+	Recojo* recojo = new Recojo();
+	ReStock* restockeo = new ReStock();
 	Proceso* proceso = new Proceso();
 	ifstream archstock;
 	archstock.open("NStock.txt", ios::in);
@@ -31,6 +33,7 @@ void  main()
 		archstock >> inc;
 		archstock.close();
 	}
+	stock->StockInicial(con, inc);
 	ifstream stockeo;
 	stockeo.open("Stock.txt", ios::in);
 	if (stockeo.is_open()) {
@@ -89,7 +92,8 @@ void  main()
 		pe->impirmir();*/
 	}
 	proceso->MostrarPedidos();
-	
+	proceso->Procesado(recojo,stock,restockeo);
+	proceso->MostrarPedidos();
 	//pe->EliminarAlimento_pos(2);
 	
 

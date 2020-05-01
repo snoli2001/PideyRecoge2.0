@@ -26,7 +26,7 @@ public:
 			
 			
 		} while (item!=NULL);
-		Encolar(nuevo);
+		r->agregarInicio(nuevo);
 	}
 	void MostrarPedidos() {
 		Nodo<Pedido*>* aux = tail;
