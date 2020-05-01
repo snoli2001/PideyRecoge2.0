@@ -27,11 +27,10 @@ void ListaSimple<T>::AgregaralInicio(T v) {
 
 	if (inicio == NULL) {
 		inicio = nuevo;
-		nuevo->siguiente = inicio;
 	}
 	else {
 		Nodo<T>* aux = inicio;
-		while (aux->siguiente != inicio) {
+		while (aux->siguiente != NULL) {
 			aux = aux->siguiente;
 		}
 		nuevo->siguiente = inicio;
@@ -121,16 +120,4 @@ void ListaSimple<T>::EliminarenPosicion(int pos) {
 
 
 }
-
-//template<class T>
-//void ListaSimple<T>::Mostrar() {
-//	Nodo<T> *nodo = inicio;
-//	do {		
-//		Alimento* ali = (Alimento*)(nodo->valor);
-//		ali->imprimir();
-//		nodo = nodo->siguiente;
-//	} while (nodo != inicio);
-//	cout << endl;
-//}
-
 #endif // !_ListaSimple_H_
