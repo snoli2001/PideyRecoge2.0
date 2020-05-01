@@ -10,7 +10,7 @@ using namespace std;
 class Proceso:public Cola<Pedido*>
 {
 public:
-	Proceso():Cola<ListaAlimento*>(){}
+	Proceso():Cola(){}
 	~Proceso(){}
 	
 	void Procesado(Recojo* r,LStock* stock, ReStock* re) {

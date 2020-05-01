@@ -48,7 +48,7 @@ public:
 			Nodo<T>* temp = head;
 			head = aux;
 			lenght--;
-			return temp;
+			return temp->valor;
 		
 	}
 	

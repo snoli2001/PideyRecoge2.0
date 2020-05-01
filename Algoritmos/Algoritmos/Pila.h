@@ -23,7 +23,7 @@ public:
 		top = nullptr;
 	}
 	void Push(T v) {
-		Nodo<T>* nuevo = new Nodo<T> * (v);
+		Nodo<T>* nuevo = new Nodo<T>(v);
 		if (top == NULL) {
 			top = nuevo;
 		}

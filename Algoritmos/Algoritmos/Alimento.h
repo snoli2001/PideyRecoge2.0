@@ -12,7 +12,7 @@ public:
 	virtual void imprimir() = 0;
 	string getNombre() { return nombre; }
 	virtual void updateCantidad(int v) = 0;
-	virtual int getCantidad() = 0;
+	virtual double getCantidad() = 0;
 protected:
 	string nombre;
 	
@@ -32,7 +32,7 @@ public:
 	void updateCantidad(int v) {
 		cantidad -= v;
 	}
-	int getCantidad() {
+	double getCantidad() {
 		return cantidad;
 	}
 };
@@ -49,7 +49,7 @@ public:
 	void updateCantidad(int v) {
 		cantidad -= v;
 	}
-	int getCantidad() {
+	double getCantidad() {
 		return cantidad;
 	}
 private:
