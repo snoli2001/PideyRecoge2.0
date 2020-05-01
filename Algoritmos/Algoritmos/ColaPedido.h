@@ -10,8 +10,6 @@ public:
 	~ColaPedido() {};
 	void Mostrar();
 	void Desencolar_pedido();
-private:
-
 };
 void ColaPedido::Mostrar()
 {
