@@ -9,7 +9,7 @@ protected:
 	int longitud;
 public:
 	Lista() { inicio = NULL; longitud = 0; };
-	~Lista() {};
+	~Lista() {}
 	void AgregaralInicio(T v);
 	void AgregaralFinal(T v);
 	void AgregarenPosicion(T v, int pos);
@@ -18,6 +18,7 @@ public:
 
 	/*void Mostrar();*/
 	virtual void Mostrar() abstract {};
+
 };
 
 template<class T>

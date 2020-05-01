@@ -5,8 +5,8 @@
 class ListaAlimento:public Lista<Alimento*>
 {
 public:
-	ListaAlimento() :Lista() {}
-	~ListaAlimento() {}
+	ListaAlimento() :Lista() {};
+	~ListaAlimento() {};
 	void Mostrar();
 
 };
