@@ -1,0 +1,6 @@
+Arroz
+0.5
+Mango
+3
+Platano
+5

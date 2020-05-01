@@ -40,18 +40,22 @@ public:
 		
 	}
 	T Desencolar() {
-		if (head != NULL) {
-			Nodo<T>* aux = tail;
-			while (aux->siguiente != head)
-			{
-				aux = aux->siguiente;
-			}
+		if (head != NULL && tail !=NULL) {
 			Nodo<T>* temp = head;
-			aux->siguiente = NULL;
-			head = aux;
-			
+			if (head != tail) {
+				Nodo<T>* aux = tail;
+				while (aux->siguiente != head)
+				{
+					aux = aux->siguiente;
+				}
+				aux->siguiente = NULL;
+				head = aux;
+				
+			}
+			else head = tail = NULL;
 			lenght--;
 			return temp->valor;
+			
 		}
 		return NULL;
 		

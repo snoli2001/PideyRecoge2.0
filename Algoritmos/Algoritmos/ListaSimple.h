@@ -96,20 +96,20 @@ void ListaS<T>::ELiminarInicial()
 template<class T>
 void ListaS<T>::EliminarenPosicion(int pos) {
 	
-	if (pos == 0)
+	if (pos == 1)
 	{
 		ELiminarInicial();
 	}
 	else {
 		Nodo<T>* aux = inicio;
-		int i = 1;
-		while (i < pos)
+	
+		while (1 < pos-1)
 		{
 			aux = aux->siguiente;
-			i++;
+			pos--;
 		}
 		Nodo<T>* Eliminar = aux->siguiente;
-		aux->siguiente = aux->siguiente->siguiente;
+		aux->siguiente= aux->siguiente->siguiente;
 		delete Eliminar;
 		lenght--;
 	}

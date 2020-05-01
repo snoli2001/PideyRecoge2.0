@@ -93,8 +93,11 @@ void  main()
 	}
 	proceso->MostrarPedidos();
 	proceso->Procesado(recojo,stock,restockeo);
-	
+	proceso->Procesado(recojo, stock, restockeo);
 	proceso->MostrarPedidos();
+	recojo->imprimir();
+	restockeo->imprimir();
+	stock->ActualizarArchivo();
 	//pe->EliminarAlimento_pos(2);
 	
 
