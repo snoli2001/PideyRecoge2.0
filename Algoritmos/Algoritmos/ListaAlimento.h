@@ -17,9 +17,8 @@ void ListaAlimento::Mostrar()
 	do {
 
 		Alimento* ali = (Alimento*)(nodo->valor);
-
-		ali->imprimir();
-		nodo = nodo->siguiente;
+		auto f = [&ali, &nodo]()->void {ali->imprimir();nodo = nodo->siguiente; };
+		f();
 
 	} while (nodo != NULL);
 	cout << endl;

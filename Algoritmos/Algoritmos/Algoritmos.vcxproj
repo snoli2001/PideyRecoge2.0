@@ -141,11 +141,12 @@
     <ClInclude Include="Alimento.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="ColaPedido.h" />
-    <ClInclude Include="ListaPedido.h" />
+    <ClInclude Include="ListaRecojo.h" />
     <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="ListaAlimento.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Pedido.h" />
+    <ClInclude Include="Tienda.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />

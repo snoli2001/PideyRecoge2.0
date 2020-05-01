@@ -70,6 +70,6 @@ public:
 		}
 		tail = nuevo;
 	}
-	
+	T GetHead_valor() { return head->valor; }
 	int Size() { return lenght; }
 };

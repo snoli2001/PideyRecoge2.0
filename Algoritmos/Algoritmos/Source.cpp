@@ -1,7 +1,5 @@
 
-#include"ListaPedido.h"
-#include"Cola.h"
-#include"ColaPedido.h"
+#include"Tienda.h"
 void  main()
 {
 	
@@ -27,35 +25,48 @@ void  main()
 	pe3->AgregarAlimentoaLista_final(new Incontable("Huevo", 0.5, "kilos"));
 	pe3->AgregarAlimentoaLista_pos(new Incontable("Fanta", 2, "litros"), 2);
 
+	Tienda* tienda= new Tienda();
+	tienda->Agregar_nuevo_pedido(pe1);
+	tienda->Agregar_nuevo_pedido(pe2);
+	tienda->Agregar_nuevo_pedido(pe3);
 
-	//PRUEBA DE LA COLA
-	ColaPedido cola_pedido;
-	cola_pedido.Agregar(pe1);
-	cola_pedido.Agregar(pe2);
-	cola_pedido.Agregar(pe3);
-	cola_pedido.Mostrar();
-	_getch();
-	system("cls");
-	//DESENCOLAR EL PRIMER PEDIDO
-	cola_pedido.Desencolar_pedido();
+	tienda->MostrarColaPedido();
+	tienda->MostrarListaRecojo();
+	tienda->pedido_completado();
+	tienda->pedido_completado();
 
-	_getch();//AL PRESIONAR UNA TECLA SE MUESTRA LOS PEIDOS RESTANTES
-	system("cls");
+	tienda->MostrarListaRecojo();
+	tienda->MostrarColaPedido();
 
-	//NUEVO COLA DE PEDIDOS RESTANTES
-	cola_pedido.Mostrar();
 
-	_getch();//AL PRESIONAR UNA TECLA SE MUESTRA EL PEDIDO QUE SE COMPLETO 
-	system("cls");
+	////PRUEBA DE LA COLA
+	//ColaPedido cola_pedido;
+	//cola_pedido.Agregar(pe1);
+	//cola_pedido.Agregar(pe2);
+	//cola_pedido.Agregar(pe3);
+	//cola_pedido.Mostrar();
+	//_getch();
+	//system("cls");
+	////DESENCOLAR EL PRIMER PEDIDO
+	//cola_pedido.Desencolar_pedido();
 
-	//DESENCOLA EL SEGUNDO PEDIDO
-	cola_pedido.Desencolar_pedido();
+	//_getch();//AL PRESIONAR UNA TECLA SE MUESTRA LOS PEIDOS RESTANTES
+	//system("cls");
 
-	_getch();//AL PRESIONAR UNA TECLA SE MUESTRA EL PEDIDO QUE SE COMPLETO 
-	system("cls");
+	////NUEVO COLA DE PEDIDOS RESTANTES
+	//cola_pedido.Mostrar();
 
-	//NUEVA COLA DE PEDIDOS RESTANTES
-	cola_pedido.Mostrar();
+	//_getch();//AL PRESIONAR UNA TECLA SE MUESTRA EL PEDIDO QUE SE COMPLETO 
+	//system("cls");
+
+	////DESENCOLA EL SEGUNDO PEDIDO
+	//cola_pedido.Desencolar_pedido();
+
+	//_getch();//AL PRESIONAR UNA TECLA SE MUESTRA EL PEDIDO QUE SE COMPLETO 
+	//system("cls");
+
+	////NUEVA COLA DE PEDIDOS RESTANTES
+	//cola_pedido.Mostrar();
 
 
 

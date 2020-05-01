@@ -25,5 +25,5 @@ void ColaPedido::Mostrar()
 	
 }
 void ColaPedido::Desencolar_pedido() {
-	cout << "El pedido de "; Desencolar()->GetNombreCompleto(); cout << " ha sido completado satisfactoriamente y se ha retirado de la cola \n\n";
+	cout << "El pedido de "; Desencolar()->GetNombreCompleto(); cout << " ha sido completado satisfactoriamente y pasará a la cola de recojo \n\n";
 }
