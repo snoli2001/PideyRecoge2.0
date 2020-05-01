@@ -10,6 +10,7 @@ class Alimento
 public:
 	Alimento(string nombre):nombre(nombre) {}
 	virtual void imprimir() = 0;
+	string GetNombre() { return nombre; }
 protected:
 	string nombre;
 	
@@ -23,9 +24,10 @@ public:
 		nombre = Contable.nombre;
 	}
 	void imprimir() { cout << nombre << "     "<<"\t" << cantidad  <<endl; }
-
+	int GetCantidad() { return cantidad; }
 private:
 	int cantidad;
+
 };
 
 class Incontable :public Alimento
@@ -37,7 +39,8 @@ public:
 		nombre = Incontable.nombre;
 	}
 	void imprimir() { cout <<  nombre<<"     "<<"\t"<<cantidad<<" "<<unidades<<endl; }
-	
+	double GetCantidad() { return cantidad; }
+	string GetUnidades() { return unidades; }
 private:
 	double cantidad;
 	string unidades;

@@ -11,6 +11,9 @@ public:
 	void AgregarAlimentoaLista_final(Alimento* a);
 	void AgregarAlimentoaLista_pos(Alimento* a,int pos);
 	void EliminarAlimento_pos(int pos);
+	void GetAlimentoenPos(int pos);
+	ListaAlimento GetListaAlimento() { return this->lista_alimento; }
+	void GetNombreCompleto() { cout << nombre << " " << apellido; }
 private:
 	string nombre;
 	string apellido;
@@ -42,4 +45,9 @@ void Pedido::AgregarAlimentoaLista_pos(Alimento* a,int pos)
 void Pedido::EliminarAlimento_pos(int pos) {
 	lista_alimento.EliminarenPosicion(pos);
 }
+void Pedido::GetAlimentoenPos(int pos)
+{
+	lista_alimento.ObtenerenPosicion(pos)->imprimir();
+}
+
 

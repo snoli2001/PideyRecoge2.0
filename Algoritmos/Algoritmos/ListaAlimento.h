@@ -8,7 +8,7 @@ public:
 	ListaAlimento() :ListaSimple() {}
 	~ListaAlimento() {}
 	void Mostrar();
-
+	
 };
 
 void ListaAlimento::Mostrar()

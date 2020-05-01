@@ -139,6 +139,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Alimento.h" />
+    <ClInclude Include="Cola.h" />
+    <ClInclude Include="ColaPedido.h" />
+    <ClInclude Include="ListaPedido.h" />
     <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="ListaAlimento.h" />
     <ClInclude Include="Nodo.h" />

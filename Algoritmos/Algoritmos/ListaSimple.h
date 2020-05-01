@@ -15,7 +15,7 @@ public:
 	void AgregarenPosicion(T v, int pos);
 	void EliminarenPosicion(int pos);
 	void ELiminarInicial();
-
+	T ObtenerenPosicion(int pos);
 	/*void Mostrar();*/
 	virtual void Mostrar() abstract {};
 };
@@ -30,11 +30,8 @@ void ListaSimple<T>::AgregaralInicio(T v) {
 	}
 	else {
 		Nodo<T>* aux = inicio;
-		while (aux->siguiente != NULL) {
-			aux = aux->siguiente;
-		}
+
 		nuevo->siguiente = inicio;
-		aux->siguiente = nuevo;
 
 		inicio = nuevo;
 		aux = NULL;
@@ -54,11 +51,12 @@ void ListaSimple<T>::AgregaralFinal(T v) {
 	}
 	else {
 		Nodo<T>* aux = inicio;
-		while (aux->siguiente != inicio) {
+
+		while (aux->siguiente != NULL) {
 			aux = aux->siguiente; //Ultimo de la ListaSimple
 		}
 		aux->siguiente = nuevo;
-
+		
 
 	}
 	longitud++;
@@ -119,5 +117,21 @@ void ListaSimple<T>::EliminarenPosicion(int pos) {
 
 
 
+}
+template<class T>
+T ListaSimple<T>::ObtenerenPosicion(int pos)
+{
+	if (pos == 0)
+	{
+		return inicio->valor;
+	}
+	int i = 1;
+	Nodo<T>* aux = inicio;
+	while (i < pos)
+	{
+		aux = aux->siguiente; //Nodo en la posición POS
+		i++;
+	}
+	return aux->valor;
 }
 #endif // !_ListaSimple_H_
