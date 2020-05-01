@@ -47,6 +47,6 @@ void Pedido::EliminarAlimento_pos(int pos) {
 	lista_alimento.EliminarenPosicion(pos);
 }
 Alimento* Pedido::ExtraerAlimento() {
-	lista_alimento.GetItem();
+	return lista_alimento.GetItem();
 }
 

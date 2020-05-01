@@ -9,7 +9,7 @@ public:
 	LStock():ListaS<Alimento*>(){}
 	~LStock() {}
 	
-	int modificacion(Alimento* v, ReStock* cola) {
+	bool modificacion(Alimento* v, ReStock* cola) {
 		bool encontrado= false;
 		Nodo<Alimento*>* aux= inicio;
 		while (!encontrado && aux!= NULL)
@@ -20,12 +20,12 @@ public:
 				if (aux->valor->getCantidad() > 0) {
 					aux->valor->updateCantidad(v->getCantidad());
 					encontrado = true;
-					return 1;
+					return true;
 				}
 				else
 				{
 					EliminarDeLista(aux, cola);
-					return 0;
+					return false;
 				}
 				
 			}

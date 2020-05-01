@@ -15,6 +15,7 @@ public:
 			lenght--;
 			return aux->valor;
 		}
+		return NULL;
 	}
 
 };
