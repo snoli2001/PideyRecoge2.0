@@ -141,12 +141,18 @@
     <ClInclude Include="Alimento.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="ColaCompras.h" />
+    <ClInclude Include="ColaProceso.h" />
+    <ClInclude Include="ColaReStock.h" />
     <ClInclude Include="ListaAlimentos.h" />
     <ClInclude Include="ListaDoble.h" />
+    <ClInclude Include="ListaRecojo.h" />
     <ClInclude Include="ListaSimple.h" />
+    <ClInclude Include="ListaStock.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="NodoDoble.h" />
     <ClInclude Include="Pila.h" />
+    <ClInclude Include="PilaAlimentos.h" />
+    <ClInclude Include="PilaRecogido.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
