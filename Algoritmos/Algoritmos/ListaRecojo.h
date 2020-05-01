@@ -31,7 +31,14 @@ public:
 		}
 		return 0;
 	}
-
+	void imprimir() {
+		NodoDoble<Pedido*>* aux = inicio;
+		while (aux!=NULL)
+		{
+			aux->valor->impirmir();
+			aux=aux->siguiente;
+		}
+	}
 };
 
 

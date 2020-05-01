@@ -16,18 +16,20 @@ public:
 
 	bool modificacion(Alimento* v, ReStock* cola) {
 		bool encontrado = false;
+		int pos = 1;
 		Nodo<Alimento*>* aux = inicio;
 		while (!encontrado && aux != NULL)
 		{
-
+			
 			if (aux->valor->getNombre() == v->getNombre())
 			{
+				
 				encontrado = true;
 				if (aux->valor->getCantidad()-v->getCantidad() >= 0) {
 					aux->valor->updateCantidad(v->getCantidad());
 					
 					if (aux->valor->getCantidad() == 0) {
-						if (sizeof(aux->valor) == sizeof(Contable*))
+						if (sizeof(aux->valor) == sizeof(Contable))
 						{
 							contable--;
 						}
@@ -35,7 +37,7 @@ public:
 						{
 							incontable--;
 						}
-						EliminarDeLista(aux, cola);
+						EliminarDeLista(aux, cola,pos);
 					}
 				}
 				else 
@@ -46,26 +48,35 @@ public:
 				return encontrado;
 			}
 			aux = aux->siguiente;
+			pos++;
 		}
 		return encontrado;
 	}
-	void EliminarDeLista(Nodo<Alimento*>* v, ReStock* cola) {
-		Nodo<Alimento*>* aux = inicio;
-		while (aux->siguiente->valor != v->valor)
-		{
-			aux = aux->siguiente;
-		}
-		aux->siguiente = v->siguiente;
+	void EliminarDeLista(Nodo<Alimento*>* v, ReStock* cola, int pos) {
 		cola->Encolar(v->valor);
-
+		EliminarenPosicion(pos);
+		
 	}
 	void ActualizarArchivo() {
 		ofstream arch;
-		arch.open("NStock.txt", ios::out);
+		arch.open("NuevoNStock.txt", ios::out);
 		if (arch.is_open()) {
-			arch << contable;
-			arch << incontable;
+			arch << contable<<endl;
+			arch << incontable<<endl;
 			arch.close();
+		}
+		ofstream archs;
+		archs.open("NuevoStock.txt", ios::out);
+		if (archs.is_open())
+		{
+			Nodo<Alimento*>* aux = inicio;
+			while (aux!=NULL)
+			{
+				archs << aux->valor->getNombre()<< endl;
+				archs << aux->valor->getCantidad()<<endl;
+				aux = aux->siguiente;
+			}
+			archs.close();
 		}
 		
 	}
@@ -73,6 +84,7 @@ public:
 		contable = c;
 		incontable = i;
 	}
+
 
 };
 

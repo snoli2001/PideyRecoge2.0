@@ -22,10 +22,9 @@ public:
 			do
 			{
 				item = actual->ExtraerAlimento();
-				if (stock->modificacion(item, re)) {
+				if (item !=NULL&&stock->modificacion(item, re)) {
 					nuevo->AgregarAlimentoaLista_inicio(item);
 				}
-
 
 			} while (item != NULL);
 			r->agregarInicio(nuevo);
