@@ -1,11 +1,11 @@
 #pragma once
 #include"Alimento.h"
-#include"Lista.h"
+#include"ListaSimple.h"
 
-class ListaAlimento:public Lista<Alimento*>
+class ListaAlimento :public ListaSimple<Alimento*>
 {
 public:
-	ListaAlimento() :Lista() {}
+	ListaAlimento() :ListaSimple() {}
 	~ListaAlimento() {}
 	void Mostrar();
 
@@ -13,14 +13,14 @@ public:
 
 void ListaAlimento::Mostrar()
 {
-	Nodo<Alimento*>*nodo = inicio;
-		do {
-		
- 			Alimento* ali = (Alimento*)(nodo->valor);
-			
-				ali->imprimir();
-				nodo = nodo->siguiente;
+	Nodo<Alimento*>* nodo = inicio;
+	do {
 
-		} while (nodo != NULL);
-		cout << endl;
+		Alimento* ali = (Alimento*)(nodo->valor);
+
+		ali->imprimir();
+		nodo = nodo->siguiente;
+
+	} while (nodo != NULL);
+	cout << endl;
 }

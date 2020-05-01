@@ -3,7 +3,7 @@
 
 void  main()
 {
-	/*Lista<Alimento*> lista_alimento;
+	/*ListaPedido<Alimento*> lista_alimento;
 	lista_alimento.AgregaralInicio(new Contable("Platano",5));
 	lista_alimento.AgregaralInicio(new Incontable("Inca Kola",3,"litros"));
 	lista_alimento.Mostrar();*/
@@ -13,7 +13,7 @@ void  main()
 	lista_alimento.AgregaralInicio(new Contable("Platano", 5));
 	lista_alimento.AgregaralInicio(new Incontable("Inca Kola", 3, "litros"));
 	lista_alimento.Mostrar();*/
-
+	
 
 	Pedido* pe = new Pedido("Joel", "Alvarado");
 	pe->AgregarAlimentoaLista_inicio(new Contable("Platano",10));

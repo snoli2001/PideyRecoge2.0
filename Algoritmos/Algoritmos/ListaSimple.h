@@ -1,15 +1,15 @@
-#ifndef _Lista_H_
-#define _Lista_H_
+#ifndef _ListaSimple_H_
+#define _ListaSimple_H_
 
 #include "Nodo.h"
 template<class T>
-class Lista {
+class ListaSimple {
 protected:
 	Nodo<T>* inicio;
 	int longitud;
 public:
-	Lista() { inicio = NULL; longitud = 0; };
-	~Lista() {};
+	ListaSimple() { inicio = NULL; longitud = 0; };
+	~ListaSimple() {};
 	void AgregaralInicio(T v);
 	void AgregaralFinal(T v);
 	void AgregarenPosicion(T v, int pos);
@@ -21,7 +21,7 @@ public:
 };
 
 template<class T>
-void Lista<T>::AgregaralInicio(T v) {
+void ListaSimple<T>::AgregaralInicio(T v) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v); //T
 
@@ -36,7 +36,7 @@ void Lista<T>::AgregaralInicio(T v) {
 		}
 		nuevo->siguiente = inicio;
 		aux->siguiente = nuevo;
-		
+
 		inicio = nuevo;
 		aux = NULL;
 	}
@@ -45,7 +45,7 @@ void Lista<T>::AgregaralInicio(T v) {
 }
 
 template<class T>
-void Lista<T>::AgregaralFinal(T v) {
+void ListaSimple<T>::AgregaralFinal(T v) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v); //T
 
@@ -56,17 +56,17 @@ void Lista<T>::AgregaralFinal(T v) {
 	else {
 		Nodo<T>* aux = inicio;
 		while (aux->siguiente != inicio) {
-			aux = aux->siguiente; //Ultimo de la Lista
+			aux = aux->siguiente; //Ultimo de la ListaSimple
 		}
 		aux->siguiente = nuevo;
-	
-		
+
+
 	}
 	longitud++;
 }
 
 template<class T>
-void Lista<T>::AgregarenPosicion(T v, int pos) {
+void ListaSimple<T>::AgregarenPosicion(T v, int pos) {
 	Nodo<T>* nuevo;
 	nuevo = new Nodo<T>(v);
 	if (pos == 0)
@@ -88,7 +88,7 @@ void Lista<T>::AgregarenPosicion(T v, int pos) {
 	longitud++;
 }
 template<class T>
-void Lista<T>::ELiminarInicial()
+void ListaSimple<T>::ELiminarInicial()
 {
 	Nodo<T>* aux = inicio;
 	if (longitud > 0) {
@@ -98,8 +98,8 @@ void Lista<T>::ELiminarInicial()
 	}
 }
 template<class T>
-void Lista<T>::EliminarenPosicion(int pos) {
-	
+void ListaSimple<T>::EliminarenPosicion(int pos) {
+
 	if (pos == 0)
 	{
 		ELiminarInicial();
@@ -117,13 +117,13 @@ void Lista<T>::EliminarenPosicion(int pos) {
 		delete Eliminar;
 		longitud--;
 	}
-	
 
-	
+
+
 }
 
 //template<class T>
-//void Lista<T>::Mostrar() {
+//void ListaSimple<T>::Mostrar() {
 //	Nodo<T> *nodo = inicio;
 //	do {		
 //		Alimento* ali = (Alimento*)(nodo->valor);
@@ -133,4 +133,4 @@ void Lista<T>::EliminarenPosicion(int pos) {
 //	cout << endl;
 //}
 
-#endif // !_Lista_H_
+#endif // !_ListaSimple_H_
