@@ -140,7 +140,7 @@
   <ItemGroup>
     <ClInclude Include="Alimento.h" />
     <ClInclude Include="Cola.h" />
-    <ClInclude Include="Lista.h" />
+    <ClInclude Include="ListaPedido.h" />
     <ClInclude Include="ListaAlimento.h" />
     <ClInclude Include="Nodo.h" />
     <ClInclude Include="Pedido.h" />

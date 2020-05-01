@@ -21,9 +21,6 @@
     <ClInclude Include="Alimento.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="Lista.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="ListaAlimento.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
@@ -31,6 +28,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="Cola.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="ListaPedido.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

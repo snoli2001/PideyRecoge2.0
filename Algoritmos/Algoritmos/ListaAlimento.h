@@ -1,11 +1,11 @@
 #pragma once
 #include"Alimento.h"
-#include"Lista.h"
+#include"ListaPedido.h"
 
-class ListaAlimento:public Lista<Alimento*>
+class ListaAlimento:public ListaPedido<Alimento*>
 {
 public:
-	ListaAlimento() :Lista() {}
+	ListaAlimento() :ListaPedido() {}
 	~ListaAlimento() {}
 	void Mostrar();
 
