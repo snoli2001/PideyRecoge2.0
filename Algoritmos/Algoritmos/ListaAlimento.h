@@ -23,15 +23,15 @@ public:
 void ListaAlimento::Mostrar()
 {
 	Nodo<Alimento*>*nodo = inicio;
-		do {
-		
- 			Alimento* ali = (Alimento*)(nodo->valor);
-			
-				ali->imprimir();
-				nodo = nodo->siguiente;
+	while (nodo != NULL)
+	{
+		Alimento* ali = (Alimento*)(nodo->valor);
 
-		} while (nodo != NULL);
-		cout << endl;
+		ali->imprimir();
+		nodo = nodo->siguiente;
+
+	}
+	cout << endl;
 }
 
 

@@ -14,19 +14,23 @@ public:
 	~Proceso(){}
 	
 	void Procesado(Recojo* r,LStock* stock, ReStock* re) {
+
 		Pedido* actual = Desencolar();
-		Pedido* nuevo = new Pedido(actual->GetNombre(),actual->GetApellido());
-		Alimento* item = NULL;
-		do
-		{
-			item = actual->ExtraerAlimento();
-			if (stock->modificacion(item, re)) {
-				nuevo->AgregarAlimentoaLista_inicio(item);
-			}
-			
-			
-		} while (item!=NULL);
-		r->agregarInicio(nuevo);
+		if (actual != NULL) {
+			Pedido* nuevo = new Pedido(actual->GetNombre(), actual->GetApellido());
+			Alimento* item = NULL;
+			do
+			{
+				item = actual->ExtraerAlimento();
+				if (stock->modificacion(item, re)) {
+					nuevo->AgregarAlimentoaLista_inicio(item);
+				}
+
+
+			} while (item != NULL);
+			r->agregarInicio(nuevo);
+		}
+		
 	}
 	void MostrarPedidos() {
 		Nodo<Pedido*>* aux = tail;
