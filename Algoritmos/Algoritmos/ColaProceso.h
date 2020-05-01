@@ -1,43 +1,24 @@
 #pragma once
 #include "Cola.h"
-#include "ListaAlimento.h"
+#include "ListaRecojo.h"
+#include "ListaStock.h"
+#include "Pedido.h"
 #include <functional>
 
 using namespace std;
-class Proceso:public Cola<ListaAlimento*>
+class Proceso:public Cola<Pedido*>
 {
 public:
 	Proceso():Cola<ListaAlimento*>(){}
 	~Proceso(){}
-	bool  Encolar(ListaAlimento* v, function<bool(ListaAlimento*)>comprobador) {
-		if (comprobador) {
-			Nodo<ListaAlimento*>* nuevo = new Nodo<ListaAlimento*>(v);
-			nuevo->siguiente = tail;
-			tail = nuevo;
-			lenght++;
-			return true;
-		}
-		return false;
+	
+	void Procesado(Recojo* r,LStock* stock) {
+		Pedido* actual = Desencolar();
+		string nombre = actual->GetNombre();
+		string apellido = actual->GetApellido();
+		Pedido* nuevo = new Pedido(nombre,apellido);
 
 	}
-
-	template<typename T>
-	T Desencolar() {
-		Nodo<T>* aux = tail;
-		while (aux->siguiente != head)
-		{
-			aux = aux->siguiente;
-		}
-		T temp = head->valor;
-		delete aux->siguiente;
-		head = aux;
-		lenght--;
-		return temp;
-
-	}
-	template<typename T>
-	int Size() { return lenght; }
-
 
 };
 

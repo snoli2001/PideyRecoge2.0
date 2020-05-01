@@ -3,6 +3,10 @@
 
 class Pedido
 {
+private:
+	string nombre;
+	string apellido;
+	ListaAlimento lista_alimento;
 public:
 	Pedido(string nombre, string apellido) :nombre(nombre), apellido(apellido) {}
 	~Pedido(){}
@@ -11,10 +15,10 @@ public:
 	void AgregarAlimentoaLista_final(Alimento* a);
 	void AgregarAlimentoaLista_pos(Alimento* a,int pos);
 	void EliminarAlimento_pos(int pos);
-private:
-	string nombre;
-	string apellido;
-	ListaAlimento lista_alimento;
+	Alimento* ExtraerAlimento();
+	string GetNombre() { return nombre; }
+	string GetApellido() { return apellido; }
+
 
 };
 
@@ -41,5 +45,8 @@ void Pedido::AgregarAlimentoaLista_pos(Alimento* a,int pos)
 }
 void Pedido::EliminarAlimento_pos(int pos) {
 	lista_alimento.EliminarenPosicion(pos);
+}
+Alimento* Pedido::ExtraerAlimento() {
+	lista_alimento.GetItem();
 }
 

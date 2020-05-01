@@ -1,11 +1,11 @@
 #pragma once
 #include "ListaDoble.h"
-#include "PilaAlimentos.h"
-class Recojo:public ListaD<Pedido1>
+#include "ListaAlimento.h"
+class Recojo:public ListaD<Pedido*>
 {
 public:
-	Recojo();
-	~Recojo();
+	Recojo() :ListaD() {}
+	~Recojo(){}
 
 private:
 

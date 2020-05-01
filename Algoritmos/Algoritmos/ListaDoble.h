@@ -8,24 +8,37 @@ class ListaD
 {
 public:
 	ListaD() {
-		inicio = final = nullptr;
+		inicio = fin = nullptr;
 		lenght = 0;
 	}
 	~ListaD() {
-		while (inicio != final)
+		while (inicio != fin)
 		{
 			NodoDoble<T>* aux = inicio->siguiente;
 			delete inicio;
 			inicio = aux;
 		}
 		delete inicio;
-		inicio =final = nullptr;
+		inicio =fin = nullptr;
 	}
-	
+	void agregarInicio(T val) {
+		Nodo<T>* nuevo = new Nodo<T> * (val);
+		if (inicio != NULL) {
+			
+			nuevo->siguiente = inicio;
+			inicio->anterior = nuevo;
+			inicio = nuevo;
+			return;
+		}
+		inicio = fin = nuevo;
+		lenght++;
+
+	}
+
 
 protected:
 	NodoDoble<T>* inicio;
-	NodoDoble<T>* final;
+	NodoDoble<T>* fin;
 	int lenght;
 
 	
