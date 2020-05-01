@@ -22,7 +22,7 @@ public:
 		inicio =fin = nullptr;
 	}
 	void agregarInicio(T val) {
-		NodoDoble<T>* nuevo = new NodoDoble<T> * (val);
+		NodoDoble<T>* nuevo = new NodoDoble<T> (val);
 		if (inicio != NULL) {
 			
 			nuevo->siguiente = inicio;

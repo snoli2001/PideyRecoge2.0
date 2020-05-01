@@ -1,2 +1,7 @@
-Platano 5
-Manzana 6
+Platano 15
+Mango 5
+Leche 2 Litros
+IncaKola 2 Litros 
+Azucar 2 kilos
+Arroz 0.5 kilos
+CocaCola 2 Litros

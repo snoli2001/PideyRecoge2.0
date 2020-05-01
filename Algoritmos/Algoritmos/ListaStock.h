@@ -29,11 +29,11 @@ public:
 				{
 					if (sizeof(aux->valor)== sizeof(Contable*))
 					{
-						contable++;
+						contable--;
 					}
 					else
 					{
-						incontable++;
+						incontable--;
 					}
 					EliminarDeLista(aux, cola);
 					return false;
@@ -42,6 +42,7 @@ public:
 			}
 			aux = aux->siguiente;
 		}
+		return false;
 	}
 	void EliminarDeLista(Nodo<Alimento*>* v, ReStock* cola) {
 		Nodo<Alimento*>* aux = inicio;
@@ -62,6 +63,10 @@ public:
 			arch.close();
 		}
 		
+	}
+	void StockInicial(int c, int i) {
+		contable = c;
+		incontable = i;
 	}
 
 };
