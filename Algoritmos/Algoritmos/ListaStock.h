@@ -1,8 +1,10 @@
 #ifndef __LISTASTOCK_H__
 #define __LISTASTOCK_H__
+#include <fstream>
 #include "Alimento.h"
 #include "ListaSimple.h"
 #include "ColaReStock.h"
+
 
 class LStock :public ListaS<Alimento*>
 {
@@ -20,29 +22,32 @@ public:
 
 			if (aux->valor->getNombre() == v->getNombre())
 			{
-				if (aux->valor->getCantidad() > 0) {
+				encontrado = true;
+				if (aux->valor->getCantidad()-v->getCantidad() >= 0) {
 					aux->valor->updateCantidad(v->getCantidad());
-					encontrado = true;
-					return true;
+					
+					if (aux->valor->getCantidad() == 0) {
+						if (sizeof(aux->valor) == sizeof(Contable*))
+						{
+							contable--;
+						}
+						else
+						{
+							incontable--;
+						}
+						EliminarDeLista(aux, cola);
+					}
 				}
-				else
+				else 
 				{
-					if (sizeof(aux->valor)== sizeof(Contable*))
-					{
-						contable--;
-					}
-					else
-					{
-						incontable--;
-					}
-					EliminarDeLista(aux, cola);
-					return false;
+					v->updateCantidad(v->getCantidad()- aux->valor->getCantidad());
+					
 				}
-
+				return encontrado;
 			}
 			aux = aux->siguiente;
 		}
-		return false;
+		return encontrado;
 	}
 	void EliminarDeLista(Nodo<Alimento*>* v, ReStock* cola) {
 		Nodo<Alimento*>* aux = inicio;

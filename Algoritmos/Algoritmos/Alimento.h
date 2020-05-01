@@ -35,6 +35,7 @@ public:
 	double getCantidad() {
 		return cantidad;
 	}
+
 };
 
 class Incontable :public Alimento

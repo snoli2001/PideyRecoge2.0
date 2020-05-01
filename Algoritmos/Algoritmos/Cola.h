@@ -47,7 +47,9 @@ public:
 				aux = aux->siguiente;
 			}
 			Nodo<T>* temp = head;
+			aux->siguiente = NULL;
 			head = aux;
+			
 			lenght--;
 			return temp->valor;
 		}
