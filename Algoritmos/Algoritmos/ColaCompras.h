@@ -4,15 +4,15 @@
 #include <functional>
 using namespace std;
 template<typename T>
-class Cola
+class ColaPendiente
 {
 private:
 	Nodo<T>* head;
 	Nodo<T>* tail;
 	int lenght;
 public:
-	Cola(Nodo<T>* h = nullptr,Nodo<T>* = nullptr, int l=0):( head=h, tail=t, lenght=l){}
-	~Cola() {
+	ColaPendiente(Nodo<T>* h = nullptr,Nodo<T>* = nullptr, int l=0):( head=h, tail=t, lenght=l){}
+	~ColaPendiente() {
 
 	}
 	bool Encolar(T v, function<bool(T)>comprobador);
@@ -21,7 +21,7 @@ public:
 };
 
 template<typename T>
-bool  Cola<T>::Encolar(T v, function<bool(T)>comprobador) {
+bool  ColaPendiente<T>::Encolar(T v, function<bool(T)>comprobador) {
 	if (comprobador) {
 		Nodo<T>* nuevo = new Nodo<T>(v);
 		nuevo->siguiente = tail;
@@ -34,7 +34,7 @@ bool  Cola<T>::Encolar(T v, function<bool(T)>comprobador) {
 }
 
 template<typename T>
-T Cola<T>::Desencolar() {
+T ColaPendiente<T>::Desencolar() {
 	Nodo<T>* aux = tail;
 	while (aux->siguiente!=head)
 	{
@@ -48,5 +48,5 @@ T Cola<T>::Desencolar() {
 
 }
 template<typename T>
-int Cola<T>::Size() { return lenght; }
+int ColaPendiente<T>::Size() { return lenght; }
 

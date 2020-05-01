@@ -21,9 +21,7 @@ public:
 		delete inicio;
 		inicio =final = nullptr;
 	}
-	virtual void AgregarInicio()= 0;
-	virtual void AgregarFinal()= 0;
-	virtual void Mostrar()=0;
+	
 
 protected:
 	NodoDoble<T>* inicio;
