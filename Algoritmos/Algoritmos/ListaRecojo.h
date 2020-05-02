@@ -2,13 +2,14 @@
 #include "ListaDoble.h"
 #include "Pedido.h"
 #include "PilaRecogido.h"
-class Recojo:public ListaD<Pedido*>
+class Recojo :public ListaD<Pedido*>
 {
 public:
 	Recojo() :ListaD() {}
-	~Recojo(){}
+	~Recojo() {}
 	void recoger(Recogido* re, string nombre, string apellido) {
 		int pos = Busqueda(nombre, apellido);
+
 		if (pos) {
 			Pedido* despachado = EstraerElemento(pos);
 			re->Push(despachado);
@@ -21,7 +22,7 @@ public:
 	int Busqueda(string nombre, string apellido) {
 		NodoDoble<Pedido*>* aux = inicio;
 		int pos = 1;
-		while (lenght>=pos)
+		while (lenght >= pos)
 		{
 			if (aux->valor->GetNombre() == nombre && aux->valor->GetApellido() == apellido) {
 				return pos;
@@ -33,13 +34,12 @@ public:
 	}
 	void imprimir() {
 		NodoDoble<Pedido*>* aux = inicio;
-		while (aux!=NULL)
+		while (aux != NULL)
 		{
 			aux->valor->impirmir();
-			aux=aux->siguiente;
+			aux = aux->siguiente;
 		}
 	}
 };
-
 
 

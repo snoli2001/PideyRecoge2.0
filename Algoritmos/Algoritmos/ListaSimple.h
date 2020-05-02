@@ -4,7 +4,7 @@
 
 
 template<class T>
-class ListaS  {
+class ListaS {
 
 protected:
 	Nodo<T>* inicio;
@@ -55,8 +55,8 @@ void ListaS<T>::AgregaralFinal(T v) {
 			aux = aux->siguiente; //Ultimo de la ListaS
 		}
 		aux->siguiente = nuevo;
-	
-		
+
+
 	}
 	lenght++;
 }
@@ -95,27 +95,27 @@ void ListaS<T>::ELiminarInicial()
 }
 template<class T>
 void ListaS<T>::EliminarenPosicion(int pos) {
-	
+
 	if (pos == 1)
 	{
 		ELiminarInicial();
 	}
 	else {
 		Nodo<T>* aux = inicio;
-	
-		while (1 < pos-1)
+
+		while (1 < pos - 1)
 		{
 			aux = aux->siguiente;
 			pos--;
 		}
 		Nodo<T>* Eliminar = aux->siguiente;
-		aux->siguiente= aux->siguiente->siguiente;
+		aux->siguiente = aux->siguiente->siguiente;
 		delete Eliminar;
 		lenght--;
 	}
-	
 
-	
+
+
 }
 
 //template<class T>

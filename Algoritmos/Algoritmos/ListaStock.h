@@ -8,7 +8,7 @@
 
 class LStock :public ListaS<Alimento*>
 {
-private: 
+private:
 	int contable, incontable;
 public:
 	LStock() :ListaS() { contable = 0; incontable = 0; }
@@ -20,30 +20,34 @@ public:
 		Nodo<Alimento*>* aux = inicio;
 		while (!encontrado && aux != NULL)
 		{
-			
+
 			if (aux->valor->getNombre() == v->getNombre())
 			{
-				
+
 				encontrado = true;
-				if (aux->valor->getCantidad()-v->getCantidad() >= 0) {
+				if (aux->valor->getCantidad() - v->getCantidad() >= 0) {
 					aux->valor->updateCantidad(v->getCantidad());
-					
+
+
 					if (aux->valor->getCantidad() == 0) {
-						if (sizeof(aux->valor) == sizeof(Contable))
+						auto f = [&aux, this]()->void {(sizeof(aux->valor) == sizeof(Contable)) ? contable-- : incontable--; };
+						f();
+						
+						/*if (sizeof(aux->valor) == sizeof(Contable))
 						{
 							contable--;
 						}
 						else
 						{
 							incontable--;
-						}
-						EliminarDeLista(aux, cola,pos);
+						}*/
+						EliminarDeLista(aux, cola, pos);
 					}
 				}
-				else 
+				else
 				{
-					v->updateCantidad(v->getCantidad()- aux->valor->getCantidad());
-					
+					v->updateCantidad(v->getCantidad() - aux->valor->getCantidad());
+
 				}
 				return encontrado;
 			}
@@ -55,14 +59,14 @@ public:
 	void EliminarDeLista(Nodo<Alimento*>* v, ReStock* cola, int pos) {
 		cola->Encolar(v->valor);
 		EliminarenPosicion(pos);
-		
+
 	}
 	void ActualizarArchivo() {
 		ofstream arch;
 		arch.open("NuevoNStock.txt", ios::out);
 		if (arch.is_open()) {
-			arch << contable<<endl;
-			arch << incontable<<endl;
+			arch << contable << endl;
+			arch << incontable << endl;
 			arch.close();
 		}
 		ofstream archs;
@@ -70,15 +74,15 @@ public:
 		if (archs.is_open())
 		{
 			Nodo<Alimento*>* aux = inicio;
-			while (aux!=NULL)
+			while (aux != NULL)
 			{
-				archs << aux->valor->getNombre()<< endl;
-				archs << aux->valor->getCantidad()<<endl;
+				archs << aux->valor->getNombre() << endl;
+				archs << aux->valor->getCantidad() << endl;
 				aux = aux->siguiente;
 			}
 			archs.close();
 		}
-		
+
 	}
 	void StockInicial(int c, int i) {
 		contable = c;
@@ -97,6 +101,5 @@ public:
 
 
 #endif // !__ListaStock_H__
-
 
 

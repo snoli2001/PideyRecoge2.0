@@ -1,3 +1,4 @@
+
 #pragma once
 #include "Nodo.h"
 
@@ -14,7 +15,7 @@ public:
 		lenght = 0;
 	}
 	~Pila() {
-		while (top!=nullptr)
+		while (top != nullptr)
 		{
 			Nodo<T>* aux = top->siguiente;
 			delete top;
@@ -33,4 +34,3 @@ public:
 
 
 };
-

@@ -14,33 +14,45 @@ public:
 		lenght = 0;
 	}
 	~Cola() {
-		while (head!=tail)
+		while (head != tail)
 		{
 			Nodo<T>* aux = tail->siguiente;
 			delete tail;
 			tail = aux;
 		}
 		delete head;
-		head =tail = nullptr;
+		head = tail = nullptr;
 	}
 	void Encolar(T v) {
 		Nodo<T>* nuevo = new Nodo<T>(v);
-		if (tail!=NULL)
-		{
-			
+
+		bool b;
+		auto f = [this](bool& b) {(head == NULL) ? b = true : b = false; };
+		f(b);
+		if (b) {
+			tail = head = nuevo;
+		}
+		else {
 			nuevo->siguiente = tail;
 			tail = nuevo;
-			
+		}
+		lenght++;
+		/*if (tail != NULL)
+		{
+
+			nuevo->siguiente = tail;
+			tail = nuevo;
+
 		}
 		else
 		{
 			tail = head = nuevo;
 		}
-		lenght++;
+		lenght++;*/
 		
 	}
 	T Desencolar() {
-		if (head != NULL && tail !=NULL) {
+		if (head != NULL && tail != NULL) {
 			Nodo<T>* temp = head;
 			if (head != tail) {
 				Nodo<T>* aux = tail;
@@ -50,16 +62,15 @@ public:
 				}
 				aux->siguiente = NULL;
 				head = aux;
-				
+
 			}
 			else head = tail = NULL;
 			lenght--;
 			return temp->valor;
-			
+
 		}
 		return NULL;
-		
-	}
-	
-};
 
+	}
+
+};

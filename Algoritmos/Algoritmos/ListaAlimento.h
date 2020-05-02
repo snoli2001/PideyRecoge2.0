@@ -2,7 +2,7 @@
 #include"Alimento.h"
 #include"ListaSimple.h"
 
-class ListaAlimento:public ListaS<Alimento*>
+class ListaAlimento :public ListaS<Alimento*>
 {
 public:
 	ListaAlimento() :ListaS() {}
@@ -22,16 +22,15 @@ public:
 
 void ListaAlimento::Mostrar()
 {
-	Nodo<Alimento*>*nodo = inicio;
+	Nodo<Alimento*>* nodo = inicio;
 	while (nodo != NULL)
 	{
 		Alimento* ali = (Alimento*)(nodo->valor);
 
-		ali->imprimir();
-		nodo = nodo->siguiente;
-
+		//ali->imprimir();
+		//nodo = nodo->siguiente;
+		auto f = [&ali, &nodo]() {ali->imprimir();nodo = nodo->siguiente; };
+		f();
 	}
 	cout << endl;
 }
-
-
