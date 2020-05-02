@@ -63,4 +63,12 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="NPedidos.txt" />
+    <Text Include="NStock.txt" />
+    <Text Include="NuevoNStock.txt" />
+    <Text Include="NuevoStock.txt" />
+    <Text Include="Pedidos.txt" />
+    <Text Include="Stock.txt" />
+  </ItemGroup>
 </Project>

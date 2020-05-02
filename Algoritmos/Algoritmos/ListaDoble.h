@@ -19,16 +19,17 @@ public:
 			inicio = aux;
 		}
 		delete inicio;
-		inicio =fin = nullptr;
+		inicio = fin = nullptr;
 	}
 	void agregarInicio(T val) {
-		NodoDoble<T>* nuevo = new NodoDoble<T> (val);
+		NodoDoble<T>* nuevo = new NodoDoble<T>(val);
 		if (inicio != NULL) {
-			
-			nuevo->siguiente = inicio;
+			auto f = [&nuevo,this]()->void {nuevo->siguiente = inicio; inicio->anterior = nuevo; inicio = nuevo; return; };
+			f();
+			/*nuevo->siguiente = inicio;
 			inicio->anterior = nuevo;
 			inicio = nuevo;
-			return;
+			return;*/
 		}
 		inicio = fin = nuevo;
 		lenght++;
@@ -37,25 +38,26 @@ public:
 	T EstraerElemento(int pos) {
 		if (lenght > 0) {
 			NodoDoble<T>* aux = inicio;
-			while (pos-1!=1)
+			while (pos - 1 != 1)
 			{
 				aux = aux->siguiente;
 				pos--;
 			}
 			NodoDoble<T>* temp = aux->siguiente;
+
 			aux->siguiente = temp->siguiente;
 			temp->siguiente->anterior = aux;
 			lenght--;
 			return temp->valor;
 		}
 	}
-	
+
 
 protected:
 	NodoDoble<T>* inicio;
 	NodoDoble<T>* fin;
 	int lenght;
 
-	
+
 
 };

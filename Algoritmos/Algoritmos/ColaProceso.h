@@ -7,13 +7,13 @@
 #include <functional>
 
 using namespace std;
-class Proceso:public Cola<Pedido*>
+class Proceso :public Cola<Pedido*>
 {
 public:
-	Proceso():Cola(){}
-	~Proceso(){}
-	
-	void Procesado(Recojo* r,LStock* stock, ReStock* re) {
+	Proceso() :Cola() {}
+	~Proceso() {}
+
+	void Procesado(Recojo* r, LStock* stock, ReStock* re) {
 
 		Pedido* actual = Desencolar();
 		if (actual != NULL) {
@@ -22,24 +22,26 @@ public:
 			do
 			{
 				item = actual->ExtraerAlimento();
-				if (item !=NULL&&stock->modificacion(item, re)) {
+				bool b;
+				auto f = [&item, &stock, &re](bool& b) {(item != NULL && stock->modificacion(item, re)) ? b = true : b = false; };
+				f(b);
+				if (/*item != NULL && stock->modificacion(item, re)*/b) {
 					nuevo->AgregarAlimentoaLista_inicio(item);
 				}
 
 			} while (item != NULL);
 			r->agregarInicio(nuevo);
 		}
-		
+
 	}
 	void MostrarPedidos() {
 		Nodo<Pedido*>* aux = tail;
-		while (aux!=NULL)
+		while (aux != NULL)
 		{
-			aux->valor->impirmir();
-			aux = aux->siguiente;
+			//aux->valor->impirmir();
+			//aux = aux->siguiente;
+			auto f = [&aux]()->void {aux->valor->impirmir(); aux = aux->siguiente; };
+			f();
 		}
 	}
 };
-
-
-
