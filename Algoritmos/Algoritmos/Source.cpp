@@ -10,8 +10,8 @@ void  main()
 	string nombre, apellido;
 	int con=0, inc=0;
 	string producto, medida;
-	double cant;
-
+	double cant, precio;
+	
 	/*ListaS<Alimento*> lista_alimento;
 	lista_alimento.AgregaralInicio(new Contable("Platano",5));
 	lista_alimento.AgregaralInicio(new Incontable("Inca Kola",3,"litros"));
@@ -42,7 +42,9 @@ void  main()
 		{
 			stockeo >> producto;
 			stockeo >> cant;
+			stockeo >> precio;
 			Contable* nuevo = new Contable(producto, cant);
+			nuevo->setPrecio(precio);
 			stock->AgregaralInicio(nuevo);
 		}
 		for (int i = 0; i < inc; i++)
@@ -50,7 +52,9 @@ void  main()
 			stockeo >> producto;
 			stockeo >> cant;
 			stockeo >> medida;
+			stockeo >> precio;
 			Incontable* nuevo = new Incontable(producto, cant,medida);
+			nuevo->setPrecio(precio);
 			stock->AgregaralInicio(nuevo);
 		}
 		stockeo.close();
@@ -87,9 +91,7 @@ void  main()
 		}
 	
 		archi1.close();
-		/*pe->impirmir();
-		pe->EliminarAlimento_pos(0);
-		pe->impirmir();*/
+	
 	}
 	proceso->MostrarPedidos();
 	proceso->Procesado(recojo,stock,restockeo);
@@ -98,16 +100,7 @@ void  main()
 	recojo->imprimir();
 	restockeo->imprimir();
 	stock->ActualizarArchivo();
-	//pe->EliminarAlimento_pos(2);
 	
-
-	/*Pedido* pe2 = new Pedido("Daniel", "Quispe");
-	pe2->AgregarAlimentoaLista_inicio(new Contable("Mango", 2));
-	pe2->AgregarAlimentoaLista_inicio(new Incontable("Azucar", 2, "kilos"));
-	pe2->AgregarAlimentoaLista_final(new Incontable("Arroz", 0.5, "Kilos"));
-	pe2->AgregarAlimentoaLista_pos(new Incontable("Coca Cola", 2, "litros"), 2);
-
-	pe2->impirmir();*/
 
 	_getch();
 }
