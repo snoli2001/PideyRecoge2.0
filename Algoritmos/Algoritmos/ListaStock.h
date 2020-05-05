@@ -107,7 +107,29 @@ public:
 		else cout << "La lista de stock esta vacia\n";
 
 	}
+	void OrdenarLista() {
 
+		Nodo<Alimento*>* aux = inicio;
+		for (int i = 0; i < this->lenght-1; i++)
+		{
+			
+			bool ordenado = true;
+			Nodo<Alimento*>* aux2 = aux;
+			for (int j = 0; j < this->lenght-i+1; j++)
+			{ 
+				if (aux2->siguiente != NULL) {
+					if (aux2->valor->getNombre() > aux2->siguiente->valor->getNombre()) {
+						swap(aux2->valor, aux2->siguiente->valor);
+						ordenado = false;
+					}
+					aux2 = aux2->siguiente;
+				}
+			
+			}
+			if (ordenado) break;
+			aux = aux->siguiente;
+		}
+	}
 };
 
 

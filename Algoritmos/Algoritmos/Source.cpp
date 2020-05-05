@@ -85,6 +85,7 @@ void main()
 			archi1.close();
 		
 		}
+		stock->OrdenarLista();
 	int opcion = 0;
 	cout << "\t Bienvenido\n\n";
 	while (opcion != 10)
