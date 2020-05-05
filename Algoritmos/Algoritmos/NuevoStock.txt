@@ -1,6 +1,9 @@
 Arroz
 0.5
+8
 Mango
 3
+0.5
 Platano
 5
+0.3

@@ -78,6 +78,7 @@ public:
 			{
 				archs << aux->valor->getNombre() << endl;
 				archs << aux->valor->getCantidad() << endl;
+				archs << aux->valor->getPrecio() << endl;
 				aux = aux->siguiente;
 			}
 			archs.close();

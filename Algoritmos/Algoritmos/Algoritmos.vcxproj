@@ -139,10 +139,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Alimento.h" />
+    <ClInclude Include="Cliente.h" />
     <ClInclude Include="Cola.h" />
     <ClInclude Include="ColaProceso.h" />
     <ClInclude Include="ColaReStock.h" />
     <ClInclude Include="ListaDoble.h" />
+    <ClInclude Include="ListaRancking.h" />
     <ClInclude Include="ListaSimple.h" />
     <ClInclude Include="ListaAlimento.h" />
     <ClInclude Include="ListaRecojo.h" />

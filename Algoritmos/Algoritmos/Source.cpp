@@ -3,7 +3,7 @@
 #include"Pedido.h"
 #include "ColaProceso.h"
 #include "PilaRecogido.h"
-
+#include "ListaRancking.h"
 
 void  main()
 {
@@ -12,16 +12,7 @@ void  main()
 	string producto, medida;
 	double cant, precio;
 	
-	/*ListaS<Alimento*> lista_alimento;
-	lista_alimento.AgregaralInicio(new Contable("Platano",5));
-	lista_alimento.AgregaralInicio(new Incontable("Inca Kola",3,"litros"));
-	lista_alimento.Mostrar();*/
-
-	/*ListaAlimento lista_alimento;
-
-	lista_alimento.AgregaralInicio(new Contable("Platano", 5));
-	lista_alimento.AgregaralInicio(new Incontable("Inca Kola", 3, "litros"));
-	lista_alimento.Mostrar();*/
+	LRanck* ranking = new LRanck();
 	LStock* stock = new LStock();
 	Recojo* recojo = new Recojo();
 	ReStock* restockeo = new ReStock();
@@ -98,6 +89,7 @@ void  main()
 	proceso->Procesado(recojo, stock, restockeo);
 	proceso->MostrarPedidos();
 	recojo->imprimir();
+	
 	restockeo->imprimir();
 	stock->ActualizarArchivo();
 	
