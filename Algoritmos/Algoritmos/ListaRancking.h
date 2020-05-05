@@ -30,9 +30,9 @@ public:
 			agregarInicio(nuevo);
 			
 		}
-		OrendarSeleccion();
+		OrdenarSeleccion();
 	}
-	void OrendarSeleccion() {
+	void OrdenarSeleccion() {
 		NodoDoble<Cliente*>* aux = inicio;
 		for (int i = 0; i < this->lenght-1; i++)
 		{

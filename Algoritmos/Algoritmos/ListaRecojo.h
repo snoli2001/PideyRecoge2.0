@@ -13,7 +13,7 @@ public:
 		int pos = Busqueda(nombre, apellido);
 
 		if (pos) {
-			Pedido* despachado = EstraerElemento(pos);
+			Pedido* despachado = ExtraerElemento(pos);
 			re->Push(despachado);
 			recogido->ActualizarLista(despachado);
 		}
