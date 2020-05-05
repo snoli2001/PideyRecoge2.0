@@ -8,13 +8,16 @@ using namespace std;
 class Alimento
 {
 public:
-	Alimento(string nombre):nombre(nombre) {}
+	Alimento(string nombre) :nombre(nombre) { precio = 0; }
 	virtual void imprimir() = 0;
 	string getNombre() { return nombre; }
 	virtual void updateCantidad(int v) = 0;
 	virtual double getCantidad() = 0;
+	void setPrecio(double precio) { this->precio = precio; }
+	double getPrecio() {return precio;}
 protected:
 	string nombre;
+	double precio;
 	
 };
 class Contable :public Alimento

@@ -22,8 +22,7 @@ public:
 	void EliminarenPosicion(int pos);
 	void ELiminarInicial();
 
-	/*void Mostrar();*/
-	//irtual void Mostrar() abstract {};
+	
 };
 
 template<class T>

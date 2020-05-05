@@ -46,7 +46,8 @@ public:
 			NodoDoble<T>* temp = aux->siguiente;
 
 			aux->siguiente = temp->siguiente;
-			temp->siguiente->anterior = aux;
+			if(temp->siguiente!= NULL)
+				temp->siguiente->anterior = aux;
 			lenght--;
 			return temp->valor;
 		}

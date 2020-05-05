@@ -11,7 +11,7 @@ public:
 		Nodo<Alimento*>* aux = tail;
 		while (aux != NULL)
 		{
-			cout << aux->valor->getNombre() << endl;
+			cout << "Producto: "<<aux->valor->getNombre()<<endl<< "Precio: "<<aux->valor->getPrecio() << endl;
 
 			aux = aux->siguiente;
 		}

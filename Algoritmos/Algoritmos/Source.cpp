@@ -3,25 +3,17 @@
 #include"Pedido.h"
 #include "ColaProceso.h"
 #include "PilaRecogido.h"
-
+#include "ListaRancking.h"
 
 void  main()
 {
 	string nombre, apellido;
 	int con=0, inc=0;
 	string producto, medida;
-	double cant;
-
-	/*ListaS<Alimento*> lista_alimento;
-	lista_alimento.AgregaralInicio(new Contable("Platano",5));
-	lista_alimento.AgregaralInicio(new Incontable("Inca Kola",3,"litros"));
-	lista_alimento.Mostrar();*/
-
-	/*ListaAlimento lista_alimento;
-
-	lista_alimento.AgregaralInicio(new Contable("Platano", 5));
-	lista_alimento.AgregaralInicio(new Incontable("Inca Kola", 3, "litros"));
-	lista_alimento.Mostrar();*/
+	double cant, precio;
+	
+	Recogido* recogido = new Recogido();
+	LRanck* ranking = new LRanck();
 	LStock* stock = new LStock();
 	Recojo* recojo = new Recojo();
 	ReStock* restockeo = new ReStock();
@@ -42,7 +34,9 @@ void  main()
 		{
 			stockeo >> producto;
 			stockeo >> cant;
+			stockeo >> precio;
 			Contable* nuevo = new Contable(producto, cant);
+			nuevo->setPrecio(precio);
 			stock->AgregaralInicio(nuevo);
 		}
 		for (int i = 0; i < inc; i++)
@@ -50,7 +44,9 @@ void  main()
 			stockeo >> producto;
 			stockeo >> cant;
 			stockeo >> medida;
+			stockeo >> precio;
 			Incontable* nuevo = new Incontable(producto, cant,medida);
+			nuevo->setPrecio(precio);
 			stock->AgregaralInicio(nuevo);
 		}
 		stockeo.close();
@@ -87,27 +83,20 @@ void  main()
 		}
 	
 		archi1.close();
-		/*pe->impirmir();
-		pe->EliminarAlimento_pos(0);
-		pe->impirmir();*/
+	
 	}
 	proceso->MostrarPedidos();
 	proceso->Procesado(recojo,stock,restockeo);
 	proceso->Procesado(recojo, stock, restockeo);
 	proceso->MostrarPedidos();
 	recojo->imprimir();
+	recojo->recoger(recogido, "Joel", "Alvarado", ranking);
+	recojo->imprimir();
+	recogido->Reporte();
+	ranking->mostrar();
 	restockeo->imprimir();
 	stock->ActualizarArchivo();
-	//pe->EliminarAlimento_pos(2);
 	
-
-	/*Pedido* pe2 = new Pedido("Daniel", "Quispe");
-	pe2->AgregarAlimentoaLista_inicio(new Contable("Mango", 2));
-	pe2->AgregarAlimentoaLista_inicio(new Incontable("Azucar", 2, "kilos"));
-	pe2->AgregarAlimentoaLista_final(new Incontable("Arroz", 0.5, "Kilos"));
-	pe2->AgregarAlimentoaLista_pos(new Incontable("Coca Cola", 2, "litros"), 2);
-
-	pe2->impirmir();*/
 
 	_getch();
 }

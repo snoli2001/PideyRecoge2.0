@@ -10,8 +10,9 @@ private:
 	string nombre;
 	string apellido;
 	ListaAlimento lista_alimento;
+	double total;
 public:
-	Pedido(string nombre, string apellido) :nombre(nombre), apellido(apellido) {}
+	Pedido(string nombre, string apellido) :nombre(nombre), apellido(apellido) { total = 0; }
 	~Pedido() {}
 	void impirmir();
 	void AgregarAlimentoaLista_inicio(Alimento* a);
@@ -22,7 +23,9 @@ public:
 	string GetNombre() { return nombre; }
 	string GetApellido() { return apellido; }
 
-
+	double TotalPedido() {
+		return total;
+	}
 };
 
 void Pedido::impirmir()
@@ -36,11 +39,13 @@ void Pedido::impirmir()
 void Pedido::AgregarAlimentoaLista_inicio(Alimento* a)
 {
 	lista_alimento.AgregaralInicio(a);
+	total += a->getPrecio() * a->getCantidad();
 }
 
 void Pedido::AgregarAlimentoaLista_final(Alimento* a)
 {
 	lista_alimento.AgregaralFinal(a);
+	total += a->getPrecio() * a->getCantidad();
 }
 void Pedido::AgregarAlimentoaLista_pos(Alimento* a, int pos)
 {
