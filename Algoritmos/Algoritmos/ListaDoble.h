@@ -38,18 +38,27 @@ public:
 	T ExtraerElemento(int pos) {
 		if (lenght > 0) {
 			NodoDoble<T>* aux = inicio;
-			while (pos - 1 != 1)
+			if (pos!= 1)
 			{
-				aux = aux->siguiente;
-				pos--;
-			}
-			NodoDoble<T>* temp = aux->siguiente;
+				while (pos - 1 != 1)
+				{
+					aux = aux->siguiente;
+					pos--;
+				}
+				NodoDoble<T>* temp = aux->siguiente;
 
-			aux->siguiente = temp->siguiente;
-			if(temp->siguiente!= NULL)
-				temp->siguiente->anterior = aux;
-			lenght--;
-			return temp->valor;
+				aux->siguiente = temp->siguiente;
+				if (temp->siguiente != NULL)
+					temp->siguiente->anterior = aux;
+				lenght--;
+				return temp->valor;
+			}
+			else
+			{
+				inicio = fin = NULL;
+				return aux->valor;
+			}
+			
 		}
 	}
 
