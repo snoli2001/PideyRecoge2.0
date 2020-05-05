@@ -1,15 +1,49 @@
 #pragma once
 #include "ListaDoble.h"
-#include "PilaAlimentos.h"
-class Recojo:public ListaD<Pedido1>
+#include "Pedido.h"
+#include "PilaRecogido.h"
+#include "ListaRancking.h"
+
+class Recojo :public ListaD<Pedido*>
 {
 public:
-	Recojo();
-	~Recojo();
+	Recojo() :ListaD() {}
+	~Recojo() {}
+	void recoger(Recogido* re, string nombre, string apellido,LRanck* recogido) {
+		int pos = Busqueda(nombre, apellido);
 
-private:
-
+		if (pos) {
+			Pedido* despachado = EstraerElemento(pos);
+			re->Push(despachado);
+			recogido->ActualizarLista(despachado);
+		}
+		else
+		{
+			cout << "Cliente no encontrado";
+		}
+	}
+	int Busqueda(string nombre, string apellido) {
+		NodoDoble<Pedido*>* aux = inicio;
+		int pos = 1;
+		while (lenght >= pos)
+		{
+			if (aux->valor->GetNombre() == nombre && aux->valor->GetApellido() == apellido) {
+				return pos;
+			}
+			pos++;
+			aux = aux->siguiente;
+		}
+		return 0;
+	}
+	void imprimir() {
+		cout << "Pedidos por recoger\n";
+		NodoDoble<Pedido*>* aux = inicio;
+		while (aux != NULL)
+		{
+			aux->valor->impirmir();
+			aux = aux->siguiente;
+		}
+	}
 };
-
 
 

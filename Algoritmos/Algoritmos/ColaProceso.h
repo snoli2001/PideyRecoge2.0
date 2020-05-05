@@ -1,45 +1,47 @@
 #pragma once
 #include "Cola.h"
-#include "ListaAlimento.h"
+#include "ListaRecojo.h"
+#include "ListaStock.h"
+#include "ColaReStock.h"
+#include "Pedido.h"
 #include <functional>
 
 using namespace std;
-class Proceso:public Cola<ListaAlimento*>
+class Proceso :public Cola<Pedido*>
 {
 public:
-	Proceso():Cola<ListaAlimento*>(){}
-	~Proceso(){}
-	bool  Encolar(ListaAlimento* v, function<bool(ListaAlimento*)>comprobador) {
-		if (comprobador) {
-			Nodo<ListaAlimento*>* nuevo = new Nodo<ListaAlimento*>(v);
-			nuevo->siguiente = tail;
-			tail = nuevo;
-			lenght++;
-			return true;
+	Proceso() :Cola() {}
+	~Proceso() {}
+
+	void Procesado(Recojo* r, LStock* stock, ReStock* re) {
+
+		Pedido* actual = Desencolar();
+		if (actual != NULL) {
+			Pedido* nuevo = new Pedido(actual->GetNombre(), actual->GetApellido());
+			Alimento* item = NULL;
+			do
+			{
+				item = actual->ExtraerAlimento();
+				bool b;
+				auto f = [&item, &stock, &re](bool& b) {(item != NULL && stock->modificacion(item, re)) ? b = true : b = false; };
+				f(b);
+				if (/*item != NULL && stock->modificacion(item, re)*/b) {
+					nuevo->AgregarAlimentoaLista_inicio(item);
+				}
+
+			} while (item != NULL);
+			r->agregarInicio(nuevo);
 		}
-		return false;
 
 	}
-
-	template<typename T>
-	T Desencolar() {
-		Nodo<T>* aux = tail;
-		while (aux->siguiente != head)
+	void MostrarPedidos() {
+		Nodo<Pedido*>* aux = tail;
+		while (aux != NULL)
 		{
-			aux = aux->siguiente;
+			//aux->valor->impirmir();
+			//aux = aux->siguiente;
+			auto f = [&aux]()->void {aux->valor->impirmir(); aux = aux->siguiente; };
+			f();
 		}
-		T temp = head->valor;
-		delete aux->siguiente;
-		head = aux;
-		lenght--;
-		return temp;
-
 	}
-	template<typename T>
-	int Size() { return lenght; }
-
-
 };
-
-
-

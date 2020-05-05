@@ -8,26 +8,57 @@ class ListaD
 {
 public:
 	ListaD() {
-		inicio = final = nullptr;
+		inicio = fin = nullptr;
 		lenght = 0;
 	}
 	~ListaD() {
-		while (inicio != final)
+		while (inicio != fin)
 		{
 			NodoDoble<T>* aux = inicio->siguiente;
 			delete inicio;
 			inicio = aux;
 		}
 		delete inicio;
-		inicio =final = nullptr;
+		inicio = fin = nullptr;
 	}
-	
+	void agregarInicio(T val) {
+		NodoDoble<T>* nuevo = new NodoDoble<T>(val);
+		if (inicio != NULL) {
+			auto f = [&nuevo,this]()->void {nuevo->siguiente = inicio; inicio->anterior = nuevo; inicio = nuevo; return; };
+			f();
+			/*nuevo->siguiente = inicio;
+			inicio->anterior = nuevo;
+			inicio = nuevo;
+			return;*/
+		}
+		inicio = fin = nuevo;
+		lenght++;
+
+	}
+	T EstraerElemento(int pos) {
+		if (lenght > 0) {
+			NodoDoble<T>* aux = inicio;
+			while (pos - 1 != 1)
+			{
+				aux = aux->siguiente;
+				pos--;
+			}
+			NodoDoble<T>* temp = aux->siguiente;
+
+			aux->siguiente = temp->siguiente;
+			if(temp->siguiente!= NULL)
+				temp->siguiente->anterior = aux;
+			lenght--;
+			return temp->valor;
+		}
+	}
+
 
 protected:
 	NodoDoble<T>* inicio;
-	NodoDoble<T>* final;
+	NodoDoble<T>* fin;
 	int lenght;
 
-	
+
 
 };

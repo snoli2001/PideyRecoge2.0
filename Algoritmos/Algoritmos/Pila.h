@@ -1,3 +1,4 @@
+
 #pragma once
 #include "Nodo.h"
 
@@ -14,7 +15,7 @@ public:
 		lenght = 0;
 	}
 	~Pila() {
-		while (top!=nullptr)
+		while (top != nullptr)
 		{
 			Nodo<T>* aux = top->siguiente;
 			delete top;
@@ -22,8 +23,21 @@ public:
 		}
 		top = nullptr;
 	}
+	void Push(T v) {
+		Nodo<T>* nuevo = new Nodo<T>(v);
+		if (top != NULL) {
+			nuevo->siguiente = top;
+		}
+		
+		top = nuevo;
+	}
+	T Pop() {
+		Nodo<T>* temp = top;
+		top = top->siguiente;
+		lenght--;
+		return temp->valor;
 
+	}
 
 
 };
-
