@@ -12,6 +12,7 @@ void  main()
 	string producto, medida;
 	double cant, precio;
 	
+	Recogido* recogido = new Recogido();
 	LRanck* ranking = new LRanck();
 	LStock* stock = new LStock();
 	Recojo* recojo = new Recojo();
@@ -89,7 +90,10 @@ void  main()
 	proceso->Procesado(recojo, stock, restockeo);
 	proceso->MostrarPedidos();
 	recojo->imprimir();
-	
+	recojo->recoger(recogido, "Joel", "Alvarado", ranking);
+	recojo->imprimir();
+	recogido->Reporte();
+	ranking->mostrar();
 	restockeo->imprimir();
 	stock->ActualizarArchivo();
 	

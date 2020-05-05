@@ -13,7 +13,10 @@ public:
 	}
 	~Cliente(){}
 	string getNombre() {
-		return nombre + " " + apellido;
+		return nombre;
+	}
+	string getApellido() {
+		return apellido;
 	}
 	double getTotal() {
 		return total;

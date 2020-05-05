@@ -2,17 +2,20 @@
 #include "ListaDoble.h"
 #include "Pedido.h"
 #include "PilaRecogido.h"
+#include "ListaRancking.h"
+
 class Recojo :public ListaD<Pedido*>
 {
 public:
 	Recojo() :ListaD() {}
 	~Recojo() {}
-	void recoger(Recogido* re, string nombre, string apellido) {
+	void recoger(Recogido* re, string nombre, string apellido,LRanck* recogido) {
 		int pos = Busqueda(nombre, apellido);
 
 		if (pos) {
 			Pedido* despachado = EstraerElemento(pos);
 			re->Push(despachado);
+			recogido->ActualizarLista(despachado);
 		}
 		else
 		{
@@ -33,6 +36,7 @@ public:
 		return 0;
 	}
 	void imprimir() {
+		cout << "Pedidos por recoger\n";
 		NodoDoble<Pedido*>* aux = inicio;
 		while (aux != NULL)
 		{

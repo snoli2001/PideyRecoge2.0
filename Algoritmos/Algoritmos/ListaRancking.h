@@ -2,12 +2,36 @@
 #define __LISTARANCKING_H__
 #include "ListaDoble.h"
 #include "Cliente.h"
+#include "Pedido.h"
 
-class LRanck: ListaD<Cliente*>
+class LRanck: public ListaD<Cliente*>
 {
 public:
 	LRanck():ListaD<Cliente*>(){}
 	~LRanck(){}
+	bool Existente(string nombre, string apellido,double total) {
+		NodoDoble<Cliente*>* aux = inicio;
+		bool finded = false;
+		while (aux!=NULL&& !finded)
+		{
+			if (aux->valor->getNombre() == nombre && aux->valor) {
+				aux->valor->updateTotal(total);
+				finded = true;
+			}
+			
+		}
+		
+		return finded;
+	}
+	void ActualizarLista(Pedido* pedido ) {
+		if (!Existente(pedido->GetNombre(), pedido->GetApellido(),pedido->TotalPedido())) {
+			Cliente* nuevo = new Cliente(pedido->GetNombre(), pedido->GetApellido());
+			nuevo->updateTotal(pedido->TotalPedido());
+			agregarInicio(nuevo);
+			
+		}
+		OrendarSeleccion();
+	}
 	void OrendarSeleccion() {
 		NodoDoble<Cliente*>* aux = inicio;
 		for (int i = 0; i < this->lenght-1; i++)
@@ -29,11 +53,11 @@ public:
 
 	}
 	void mostrar() {
-		cout << "Mejores ventas";
+		cout << "Mayores compradores:\n ";
 		NodoDoble<Cliente*>* aux = inicio;
 		while (aux!=NULL)
 		{
-			cout << aux->valor->getNombre << "  " << aux->valor->getTotal() << endl;
+			cout << aux->valor->getNombre()<<" "<< aux->valor->getApellido() << "  " << aux->valor->getTotal() << endl;
 			aux = aux->siguiente;
 		}
 	}

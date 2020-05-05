@@ -25,11 +25,18 @@ public:
 	}
 	void Push(T v) {
 		Nodo<T>* nuevo = new Nodo<T>(v);
-		if (top == NULL) {
-			top = nuevo;
+		if (top != NULL) {
+			nuevo->siguiente = top;
 		}
-		nuevo->siguiente = top;
+		
 		top = nuevo;
+	}
+	T Pop() {
+		Nodo<T>* temp = top;
+		top = top->siguiente;
+		lenght--;
+		return temp->valor;
+
 	}
 
 
