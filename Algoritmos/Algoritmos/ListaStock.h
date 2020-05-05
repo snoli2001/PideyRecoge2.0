@@ -89,7 +89,24 @@ public:
 		contable = c;
 		incontable = i;
 	}
+	void Imprimir()
+	{
+		Nodo<Alimento*>* aux = inicio;
+		if (inicio != NULL)
+		{
+			cout << "\tMi stock\n\n";
 
+			while (aux != NULL)
+			{
+				aux->valor->imprimir();
+				aux = aux->siguiente;
+			}
+		
+			cout << endl;
+		}
+		else cout << "La lista de stock esta vacia\n";
+
+	}
 
 };
 
