@@ -35,7 +35,7 @@ public:
 		lenght++;
 
 	}
-	T EstraerElemento(int pos) {
+	T ExtraerElemento(int pos) {
 		if (lenght > 0) {
 			NodoDoble<T>* aux = inicio;
 			while (pos - 1 != 1)
