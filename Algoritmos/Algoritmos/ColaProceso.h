@@ -22,11 +22,13 @@ public:
 			do
 			{
 				item = actual->ExtraerAlimento();
-				bool b;
-				auto f = [&item, &stock, &re](bool& b) {(item != NULL && stock->modificacion(item, re)) ? b = true : b = false; };
+				double b=0;
+				auto f = [&item, &stock, &re](double& b) {if (item != NULL) b = stock->modificacion(item, re); };
 				f(b);
 				if (/*item != NULL && stock->modificacion(item, re)*/b) {
+					item->setPrecio(b);
 					nuevo->AgregarAlimentoaLista_inicio(item);
+					
 				}
 
 			} while (item != NULL);

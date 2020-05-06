@@ -14,8 +14,8 @@ public:
 	LStock() :ListaS() { contable = 0; incontable = 0; }
 	~LStock() {}
 
-	bool modificacion(Alimento* v, ReStock* cola) {
-		bool encontrado = false;
+	double modificacion(Alimento* v, ReStock* cola) {
+		double encontrado = 0;
 		int pos = 1;
 		Nodo<Alimento*>* aux = inicio;
 		while (!encontrado && aux != NULL)
@@ -24,7 +24,7 @@ public:
 			if (aux->valor->getNombre() == v->getNombre())
 			{
 
-				encontrado = true;
+				encontrado = aux->valor->getPrecio();
 				if (aux->valor->getCantidad() - v->getCantidad() >= 0) {
 					aux->valor->updateCantidad(v->getCantidad());
 
