@@ -14,7 +14,7 @@ public:
 		bool finded = false;
 		while (aux!=NULL&& !finded)
 		{
-			if (aux->valor->getNombre() == nombre && aux->valor) {
+			if (aux->valor->getNombre() == nombre && aux->valor->getApellido()==apellido) {
 				aux->valor->updateTotal(total);
 				finded = true;
 			}
@@ -30,9 +30,10 @@ public:
 			agregarInicio(nuevo);
 			
 		}
-		OrendarSeleccion();
+		OrdenarSeleccion();
 	}
-	void OrendarSeleccion() {
+	void OrdenarSeleccion() {
+
 		NodoDoble<Cliente*>* aux = inicio;
 		for (int i = 0; i < this->lenght-1; i++)
 		{

@@ -22,7 +22,7 @@ public:
 		return total;
 	}
 	void  updateTotal(double v) {
-		total += v;
+		this->total =total+v;
 	}
 
 private:

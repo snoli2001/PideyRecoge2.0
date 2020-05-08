@@ -16,6 +16,7 @@ public:
 			Pedido* despachado = EstraerElemento(pos);
 			re->Push(despachado);
 			recogido->ActualizarLista(despachado);
+			
 		}
 		else
 		{
