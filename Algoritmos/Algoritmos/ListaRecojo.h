@@ -9,13 +9,13 @@ class Recojo :public ListaD<Pedido*>
 public:
 	Recojo() :ListaD() {}
 	~Recojo() {}
-	void recoger(Recogido* re, string nombre, string apellido,LRanck* recogido) {
+	void recoger(Recogido* recogido, string nombre, string apellido,LRank* ranking) {
 		int pos = Busqueda(nombre, apellido);
 
 		if (pos) {
 			Pedido* despachado = ExtraerElemento(pos);
-			re->Push(despachado);
-			recogido->ActualizarLista(despachado);
+			recogido->Push(despachado);
+			ranking->ActualizarLista(despachado);
 		}
 		else
 		{

@@ -4,11 +4,11 @@
 #include "Cliente.h"
 #include "Pedido.h"
 
-class LRanck: public ListaD<Cliente*>
+class LRank: public ListaD<Cliente*>
 {
 public:
-	LRanck():ListaD<Cliente*>(){}
-	~LRanck(){}
+	LRank():ListaD<Cliente*>(){}
+	~LRank(){}
 	bool Existente(string nombre, string apellido,double total) {
 		NodoDoble<Cliente*>* aux = inicio;
 		bool finded = false;

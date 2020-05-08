@@ -13,7 +13,7 @@ void main()
 		double cant, precio;
 		
 		Recogido* recogido = new Recogido();
-		LRanck* ranking = new LRanck();
+		LRank* ranking = new LRank();
 		LStock* stock = new LStock();
 		Recojo* recojo = new Recojo();
 		ReStock* restockeo = new ReStock();
